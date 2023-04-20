@@ -1,4 +1,2 @@
 # biometric-attendance
-
-
  
