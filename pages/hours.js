@@ -6,29 +6,23 @@ import { toast } from "react-hot-toast";
 export default function Hours({ data }) {
     const [loading, setLoading] = useState(false);
 
-    const startRef = useRef();
-    const endRef = useRef();
-    const lateRef = useRef();
+    const [start, setStart] = useState("");
+    const [late, setLate] = useState("");
+    const [end, setEnd] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:3000/api/hours")
             .then(res => res.json())
             .then(data => {
-                if (startRef.current.value) {
-                    startRef.current.value = data.start;
-                    lateRef.current.value = data.late;
-                    endRef.current.value = data.end;
-                }
+                setStart(data.start);
+                setLate(data.late);
+                setEnd(data.end);
             })
     }, []);
 
     const handleSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
-        const start = startRef.current.value;
-        const late = lateRef.current.value;
-        const end = endRef.current.value;
-        console.log(typeof start, typeof late, typeof end);
 
         const update = fetch("http://localhost:3000/api/hours", {
             method: "POST",
@@ -39,7 +33,7 @@ export default function Hours({ data }) {
         })
             .then(res => res.json())
             .then(data => data)
-            .catch(err => console.log(err))
+            .catch(err => toast.error(err))
             .finally(() => setLoading(false));
 
         toast.promise(update, {
@@ -61,17 +55,17 @@ export default function Hours({ data }) {
                 <form className="flex flex-col ">
                     <div className="my-1 flex flex-col">
                         <label>Start</label>
-                        <input type="time" className="w-96" ref={startRef} />
+                        <input type="time" className="w-96" value={start} onChange={(e) => setStart(e.target.value)} />
                     </div>
 
                     <div className="my-1 flex flex-col">
                         <label>Late</label>
-                        <input type="time" className="w-96" ref={lateRef} />
+                        <input type="time" className="w-96" value={late} onChange={(e)=> setLate(e.target.value)} />
                     </div>
 
                     <div className="my-1 flex flex-col">
                         <label>End</label>
-                        <input type="time" className="w-96" ref={endRef} />
+                        <input type="time" className="w-96" value={end} onChange={(e) => setEnd(e.target.value)} />
                     </div>
 
                     <div className="flex justify-center items-center ">

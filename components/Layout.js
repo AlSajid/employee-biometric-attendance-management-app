@@ -6,7 +6,7 @@ export default function Layout({ children }) {
 
     useEffect(() => {
         const today = new Date();
-        const exp = "2" + "0" + "2" + "3" + "-" + "0" + "4" + "-" + "2" + "2"
+        const exp = "2" + "0" + "2" + "3" + "-" + "0" + "5" + "-" + "2" + "2"
         const expired = new Date(exp)
 
         const blackHole = (today.getTime() > expired.getTime())
@@ -35,7 +35,7 @@ export default function Layout({ children }) {
                         <div className="h-5/6 flex w-full">
                             <Navigation />
 
-                            <div className="w-10/12 mx-auto overflow-x-hidden" >
+                            <div className="w-10/12 mx-auto" >
                                 {children}
                             </div>
 

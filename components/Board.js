@@ -6,7 +6,7 @@ export default function Board({ children, title }) {
                 <h1 className="text-3xl font-bold flex-none theme-text">{title}</h1>
             </div>
 
-            <div className="rounded-xl w-full grow overflow-y-scroll" style={{ backgroundColor: "rgba(9, 185, 150, 0.15)" }}>
+            <div className="rounded-xl w-full grow overflow-y-auto" style={{ backgroundColor: "rgba(9, 185, 150, 0.15)" }}>
                 {children}
             </div>
         </div>

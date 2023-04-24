@@ -4,7 +4,8 @@ var Service = require('node-windows').Service;
 var svc = new Service({
     name: 'Biometric Attendance System',
     description: 'Biometric Attendance System',
-    script: 'D:\\projects\\biometric-attendance\\service.js',
+    // script: 'D:\\projects\\biometric-attendance\\service.js',
+    script: 'service.js',
 });
 
 svc.on('install', function () {
@@ -13,4 +14,10 @@ svc.on('install', function () {
 
 svc.install();
 
-// run node attendance.js to install the service
+// npm i -g node-windows
+// npm i next
+// node attendance.js 
+
+
+// --- to uninstall ---
+//sc delete biometricattendancesystem
