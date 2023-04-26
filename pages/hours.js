@@ -3,7 +3,7 @@ import Loader from "@/components/Loader";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 
-export default function Hours({ data }) {
+export default function Hours() {
     const [loading, setLoading] = useState(false);
 
     const [start, setStart] = useState("");
@@ -14,9 +14,17 @@ export default function Hours({ data }) {
         fetch("http://localhost:3000/api/hours")
             .then(res => res.json())
             .then(data => {
+                if (data.error) {
+                    toast.error(data.error)
+                    return
+                }
+
                 setStart(data.start);
                 setLate(data.late);
                 setEnd(data.end);
+            })
+            .catch(error => {
+                console.log(error)
             })
     }, []);
 
@@ -59,8 +67,8 @@ export default function Hours({ data }) {
                     </div>
 
                     <div className="my-1 flex flex-col">
-                        <label>Late</label>
-                        <input type="time" className="w-96" value={late} onChange={(e)=> setLate(e.target.value)} />
+                        <label>Break</label>
+                        <input type="time" className="w-96" value={late} onChange={(e) => setLate(e.target.value)} />
                     </div>
 
                     <div className="my-1 flex flex-col">

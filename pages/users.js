@@ -6,20 +6,24 @@ import { toast } from "react-hot-toast";
 import { RxOpenInNewWindow } from "react-icons/rx";
 
 export default function Users() {
-    const [users, setUsers] = useState(null);
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const loadUsers = () => {
+        setLoading(true)
         fetch("http://localhost:3000/api/users")
             .then((response) => response.json())
             .then((data) => {
+                // console.log(data)
                 if (data.error) {
                     toast.error(data.error)
-                } else {
-                    setUsers(data)
+                    return;
                 }
 
+                setUsers(data)
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log(err.code))
+            .finally(setLoading(false))
     }
 
     useEffect(() => {
@@ -74,7 +78,7 @@ export default function Users() {
             <div className="m-5 text-white w-11/12 mx-auto">
 
                 {
-                    !users ? <Loader msg="fetching data" />
+                    loading ? <Loader msg="fetching data" />
                         :
                         (
                             users?.length === 0 ?
@@ -82,8 +86,10 @@ export default function Users() {
                                 :
                                 (<div className="w-full mx-auto grid grid-cols-12 ">
 
-                                    <div className="col-span-6 table-header">Name</div>
-                                    <div className="col-span-4 table-header">ID</div>
+                                    <div className="col-span-3 table-header">Name</div>
+                                    <div className="col-span-2 table-header">ID</div>
+                                    <div className="col-span-2 table-header">Designation</div>
+                                    <div className="col-span-2 table-header">Department</div>
                                     <div className="col-span-1 table-header">View</div>
                                     <div className="col-span-1 table-header">Action</div>
 
@@ -91,12 +97,20 @@ export default function Users() {
                                         users?.map((user, index) => (
                                             <div key={index} className="grid col-span-12 grid-cols-12">
 
-                                                <div className="col-span-6 table-content" style={{ textAlign: "left" }}>
+                                                <div className="col-span-3 table-content" style={{ textAlign: "left" }}>
                                                     <span>{user.name}</span>
                                                 </div>
 
-                                                <div className="col-span-4 table-content">
+                                                <div className="col-span-2 table-content">
                                                     {user.id}
+                                                </div>
+
+                                                <div className="col-span-2 table-content">
+                                                    {user?.designation}
+                                                </div>
+
+                                                <div className="col-span-2 table-content">
+                                                    {user?.department}
                                                 </div>
 
                                                 <Link href={`/users/${user.id}`} className="col-span-1 flex justify-center items-center">

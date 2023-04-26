@@ -1,4 +1,5 @@
 import database from "./database"
+import errorHandler from "./utilities/errorHandler";
 
 export default async function handler(req, res) {
     try {
@@ -7,16 +8,7 @@ export default async function handler(req, res) {
         return;
     }
     catch (error) {
-        console.log("error: ", error.code)
-
-        switch (error.code){
-            case "ECONNREFUSED":
-                res.status(500).json({ error: "Your Internet session was interrupted" })
-                break;
-
-            default:
-                res.status(500).json({error: "Something went Wrong"})
-        }
-        return;    
-    }   
+        res.status(500).json(errorHandler(error))
+        return;
+    }
 }

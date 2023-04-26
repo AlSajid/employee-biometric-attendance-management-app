@@ -14,10 +14,11 @@ svc.on('install', function () {
 
 svc.install();
 
+// --- to install ---
+// npm run build
 // npm i -g node-windows
 // npm i next
-// node attendance.js 
-
+// node attendance.js
 
 // --- to uninstall ---
 //sc delete biometricattendancesystem

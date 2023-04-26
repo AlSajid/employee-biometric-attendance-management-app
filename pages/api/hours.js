@@ -1,4 +1,5 @@
 import database from "./database";
+import errorHandler from "./utilities/errorHandler";
 
 export default async function handler(req, res) {
     switch (req.method) {
@@ -17,9 +18,13 @@ export default async function handler(req, res) {
             break;
 
         case "GET":
-            const data = await database.collection("hours").findOne()
-            console.log(data)
-            res.status(200).json(data);
+            try {
+                const data = await database.collection("hours").findOne()
+                res.status(200).json(data);
+            }
+            catch (error) {
+                res.status(500).json(errorHandler(error))
+            }
             break;
     }
 }

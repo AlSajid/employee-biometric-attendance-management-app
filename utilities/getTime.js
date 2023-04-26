@@ -12,8 +12,7 @@ export default function getTime(date, type) {
     const ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
     hours = hours ? hours : 12;
-    const formattedTime = `${hours}:${minutes}:${seconds} ${ampm}`;
-
+    const formattedTime = `${hours}.${minutes}.${seconds} ${ampm}`;
 
     switch (type) {
         case 'date':

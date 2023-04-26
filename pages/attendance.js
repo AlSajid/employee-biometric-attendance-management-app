@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <Board title={"Backup Data"}>
       <div className="flex flex-col items-center justify-center mx-auto">
-        <button className='my-3' onClick={fetchAttendance}>Fetch & Backup</button>
+        <button className='my-3' onClick={fetchAttendance}>Pull & Backup</button>
         {
           loading && <Loader />
         }
