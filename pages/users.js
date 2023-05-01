@@ -14,7 +14,7 @@ export default function Users() {
         fetch("http://localhost:3000/api/users")
             .then((response) => response.json())
             .then((data) => {
-                // console.log(data)
+
                 if (data.error) {
                     toast.error(data.error)
                     return;
@@ -36,30 +36,31 @@ export default function Users() {
             <div>
                 <span className="text-xl my-3 font-semibold block">Do you want to delete this user?</span>
                 <div className="my-1 flex justify-center items-center">
-                    <button className="bg-red-500 p-2 w-20 rounded text-white" onClick={() => {
-                        toast.dismiss(t.id)
+                    <button className="p-2 w-20 rounded text-white"
+                        onClick={() => {
+                            toast.dismiss(t.id)
 
-                        fetch("http://localhost:3000/api/deleteUser", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify({
-                                id,
-                                ips: JSON.parse(localStorage.getItem("ipAddress")),
-                            }),
-                        })
-                            .then((response) => response.json())
-                            .then((data) => {
-                                if (data.message === "success") {
-                                    toast.success("User has been deleted successfully");
-                                    loadUsers();
-                                } else {
-                                    toast.error("Something went wrong");
-                                }
-                            });
+                            fetch("http://localhost:3000/api/deleteUser", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    id,
+                                    ips: JSON.parse(localStorage.getItem("ipAddress")).map(obj => obj.ip),
+                                }),
+                            })
+                                .then((response) => response.json())
+                                .then((data) => {
+                                    if (data.message === "success") {
+                                        toast.success("User has been deleted successfully");
+                                        loadUsers();
+                                    } else {
+                                        toast.error("Something went wrong");
+                                    }
+                                });
 
-                    }}>Delete</button>
+                        }}>Delete</button>
 
                     <button
                         className="bg-gray-100 p-2 w-20 rounded mx-3"
@@ -74,7 +75,7 @@ export default function Users() {
     }
 
     return (
-        <Board title="User">
+        <Board title="Users">
             <div className="m-5 text-white w-11/12 mx-auto">
 
                 {

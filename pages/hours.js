@@ -1,5 +1,6 @@
 import Board from "@/components/Board";
 import Loader from "@/components/Loader";
+import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 
@@ -16,12 +17,12 @@ export default function Hours() {
             .then(data => {
                 if (data.error) {
                     toast.error(data.error)
-                    return
+                } else {
+                    setStart(data.start);
+                    setLate(data.late);
+                    setEnd(data.end);
                 }
-
-                setStart(data.start);
-                setLate(data.late);
-                setEnd(data.end);
+                console.log(data)
             })
             .catch(error => {
                 console.log(error)
@@ -29,9 +30,14 @@ export default function Hours() {
     }, []);
 
     const handleSubmit = async (e) => {
-        setLoading(true);
         e.preventDefault();
 
+        if (start === "" || end === "" || late === "") {
+            toast.error("Please fill up all the fields");
+            return
+        }
+
+        setLoading(true);
         const update = fetch("http://localhost:3000/api/hours", {
             method: "POST",
             headers: {
@@ -41,7 +47,7 @@ export default function Hours() {
         })
             .then(res => res.json())
             .then(data => data)
-            .catch(err => toast.error(err))
+            .catch(err => console.log(err))
             .finally(() => setLoading(false));
 
         toast.promise(update, {
@@ -50,6 +56,7 @@ export default function Hours() {
                 if (response === "success") {
                     return "Office hour has been updated!";
                 }
+                
                 else throw new Error();
             },
             error: "Something went wrong!",
@@ -58,6 +65,11 @@ export default function Hours() {
 
     return (
         <Board title={"Office Hours"}>
+
+            <Head>
+                <title>Office Hours</title>
+            </Head>
+
             <div className="m-3 flex justify-center items-center">
 
                 <form className="flex flex-col ">

@@ -1,6 +1,7 @@
 import Board from '@/components/Board';
 import Loader from '@/components/Loader';
 import getTime from '@/utilities/getTime';
+import Head from 'next/head';
 import { useEffect, useState } from 'react'
 import { toast } from 'react-hot-toast';
 
@@ -31,27 +32,37 @@ export default function Home() {
 
   const fetchAttendance = () => {
     setLoading(true)
+
+    const ipAddress = localStorage.getItem('ipAddress') ?? '[]';
+    const ips = JSON.parse(ipAddress).map(obj => obj.ip);
+
     fetch("http://localhost:3000/api/getAttendance", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: localStorage.getItem("ipAddress"),
+      body: JSON.stringify(ips),
     })
       .then(res => res.json())
       .then(data => {
 
+        if (data.error) {
+          toast.error(data.error)
+          return;
+        }
+
         if (data.length > 0) {
           backupAttendance(data)
-          setAttendance(data)
+
         }
 
         if (data.length === 0) {
           toast.success("No new attendance")
         }
+        setAttendance(data)
 
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log("error:" + err))
       .finally(() => setLoading(false))
   }
 
@@ -63,24 +74,29 @@ export default function Home() {
 
   return (
     <Board title={"Backup Data"}>
+
+      <Head>
+        <title>Fetch & Backup</title>
+      </Head>
+
       <div className="flex flex-col items-center justify-center mx-auto">
         <button className='my-3' onClick={fetchAttendance}>Pull & Backup</button>
         {
-          loading && <Loader />
+          loading && <Loader msg="pulling data" />
         }
         {
           attendance.length > 0 &&
 
-          <div className='m-3 w-11/12 mx-auto grid grid-cols-12'>
+          <div className='m-3 w-11/12 mx-auto grid grid-cols-12 text-center'>
 
-            <span className='col-span-4 table header'>ID</span>
-            <span className='col-span-4 table header'>IP</span>
-            <span className='col-span-4 table header'>time</span>
+            <span className='col-span-4 table-header'>ID</span>
+            <span className='col-span-4 table-header'>IP</span>
+            <span className='col-span-4 table-header'>time</span>
 
             {
 
               attendance.map((item, index) => (
-                <tr key={index}>
+                <tr key={index} className='col-span-12 grid grid-cols-12'>
                   <td className='col-span-4 table-content'>{item.deviceUserId}</td>
                   <td className='col-span-4 table-content'>{item.ip}</td>
                   <td className='col-span-4 table-content'>{getTime(item.recordTime)}</td>

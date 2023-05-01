@@ -23,7 +23,7 @@ export default function Devices() {
         e.preventDefault();
 
         if (inputRef.current.value === "") {
-            toast.error("Empty Field");
+            toast.error("Enter the IP address first");
             return
         }
 
@@ -71,14 +71,14 @@ export default function Devices() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(ipAddress),
+            body: JSON.stringify(ipAddress.map(obj => obj.ip)),
         })
             .then((res) => res.json())
             .then((data) => {
                 setConnected(data)
                 toast.success(
                     ((data.length > 0) ? data.length : "No ") +
-                    ((data.length > 1) ? "devices are " : "device is ") +
+                    ((data.length > 1) ? " devices are " : " device is ") +
                     'connected'
                 )
             })
@@ -134,22 +134,27 @@ export default function Devices() {
                             <div className="grid my-3 grid-cols-12 w-11/12 mx-auto">
 
 
-                                <div className="col-span-2 table-header">No</div>
-                                <div className="col-span-8 table-header">IP Address</div>
-                                <div className="col-span-2 table-header">Action</div>
+                                <div className="col-span-1 table-header">No</div>
+                                <div className="col-span-4 table-header">IP Address</div>
+                                <div className="col-span-6 table-header">Device Info</div>
+                                <div className="col-span-1 table-header">Action</div>
 
                                 {
                                     ipAddress.map((device, index) => (
                                         <div key={index} className="grid grid-cols-12 col-span-12 gap-5 ">
 
-                                            <div className="col-span-2 table-content">{index + 1}</div>
-                                            <div className="col-span-8 table-content cursor-pointer" title={device.tag}>
-                                                {device.ip}
+                                            <div className="col-span-1 table-content">{index + 1}</div>
+                                            <div className="col-span-4 table-content cursor-pointer"
+                                                style={{ backgroundColor: (connected.includes(device.ip)) ? "rgb(34 197 94)" : "rgb(100 116 139" }}>
+                                                {device.ip + " "}
                                                 {
-                                                    connected.includes(device) && <span className=""> (Connected)</span>
+                                                    connected.includes(device.ip) && <span className="ml-3 animate-pulse">(Connected)</span>
                                                 }
                                             </div>
-                                            <div className="col-span-2 flex justify-center items-center">
+                                            <div className="col-span-6 table-content cursor-pointer">
+                                                {device.tag}
+                                            </div>
+                                            <div className="col-span-1 flex justify-center items-center">
                                                 <button
                                                     type="button"
                                                     onClick={() => {

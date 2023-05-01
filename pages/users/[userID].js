@@ -9,6 +9,7 @@ import { toast } from "react-hot-toast";
 export default function User() {
     const router = useRouter();
     const { userID } = router.query;
+    const [mainAttendance, setMainAttendance] = useState([]);
     const [attendance, setAttendance] = useState([])
     const [loading, setLoading] = useState(true)
     const [hours, setHours] = useState([])
@@ -43,6 +44,7 @@ export default function User() {
                 }
 
                 setAttendance(data.attendance)
+                setMainAttendance(data.attendance)
                 setHours(data.hours)
             })
             .catch(err => console.log(err))
@@ -50,7 +52,7 @@ export default function User() {
     };
 
     const handleFilter = () => {
-        const filtered = attendance.filter(item =>
+        const filtered = mainAttendance.filter(item =>
             (new Date(start) <= new Date(item.recordTime)) && (new Date(end) >= new Date(item.recordTime))
         )
         setAttendance(filtered)

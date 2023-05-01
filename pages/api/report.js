@@ -10,8 +10,6 @@ export default async function handler(req, res) {
     if (filter.end === "")
         filter.end = "2500-01-01"
 
-    console.log(new Date(filter.start))
-
     try {
         const hours = await database.collection('hours').findOne()
         const attendance = await database.collection('attendance').find(

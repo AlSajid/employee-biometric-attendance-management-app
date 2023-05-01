@@ -1,5 +1,6 @@
 import Board from "@/components/Board";
 import Loader from "@/components/Loader";
+import Head from "next/head";
 import { useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 
@@ -18,8 +19,10 @@ export default function AddUser() {
             return
         }
 
-        setLoading(true);
+        const ipAddress = localStorage.getItem('ipAddress') ?? '[]';
+        const ips = JSON.parse(ipAddress).map(obj => obj.ip);
 
+        setLoading(true);
         fetch('http://localhost:3000/api/addUser', {
             method: 'POST',
             headers: {
@@ -28,7 +31,7 @@ export default function AddUser() {
             body: JSON.stringify({
                 name: nameRef.current.value,
                 id: idRef.current.value,
-                ips: JSON.parse(localStorage.getItem('ipAddress')),
+                ips,
                 designation: designationRef.current.value,
                 department: departmentRef.current.value
             })
@@ -49,7 +52,6 @@ export default function AddUser() {
                     return;
                 }
 
-
             })
             .catch(err => {
                 toast.error("Something went wrong");
@@ -60,10 +62,13 @@ export default function AddUser() {
     return (
         <Board title="Add User">
 
+            <Head>
+                <title>Add User</title>
+            </Head>
 
             <form className="flex flex-col w-2/3 mx-auto my-3" onSubmit={addUserHandler}>
-                <div className="flex gap-5 my-1">
-                    <div className="my-1 flex flex-col">
+                <div className="flex gap-5 my-1 justify-center">
+                    <div className="my-1 flex flex-col ">
                         <label>Name</label>
                         <input type="text" className="" ref={nameRef} />
                     </div>
@@ -74,7 +79,7 @@ export default function AddUser() {
                     </div>
                 </div>
 
-                <div className="my-1 flex gap-5">
+                <div className="my-1 flex gap-5 justify-center">
                     <div className="my-1 flex flex-col">
                         <label>Designation</label>
                         <input type="text" ref={designationRef} className="" />
