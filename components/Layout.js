@@ -42,7 +42,7 @@ export default function Layout({ children }) {
                     output
                     :
                     <>
-                        <div className="h-screen md:flex justify-center items-center hidden">
+                        <div className="h-screen lg:flex justify-center items-center hidden">
                             <div className="h-5/6 flex w-full">
                                 <Navigation />
 
