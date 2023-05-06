@@ -154,19 +154,18 @@ export default function Devices() {
                                                 {device.tag}
                                             </div>
 
-                                            <div className="col-span-1 flex justify-center items-center table-content hover:bg-red-500 cursor-pointer">
-                                                <div
-                                                    onClick={() => {
-                                                        const newIpAddress = ipAddress.filter((ip, i) => i !== index);
-                                                        setIpAddress(newIpAddress);
-                                                        localStorage.setItem("ipAddress", JSON.stringify(newIpAddress));
-                                                        toast.success(device.ip + ` has been disconnected`);
-                                                    }}
-                                                    title="Remove"
-                                                    className="flex justify-center items-center"
-                                                >
-                                                    -
-                                                </div>
+                                            <div className="col-span-1 flex justify-center items-center table-content hover:bg-red-500 cursor-pointer"
+                                                onClick={() => {
+                                                    const newIpAddress = ipAddress.filter((ip, i) => i !== index);
+                                                    setIpAddress(newIpAddress);
+                                                    localStorage.setItem("ipAddress", JSON.stringify(newIpAddress));
+                                                    toast.success(device.ip + ` has been disconnected`);
+                                                }}
+                                                title="Remove"
+                                            >
+
+                                                -
+
                                             </div>
                                         </div>
                                     ))
