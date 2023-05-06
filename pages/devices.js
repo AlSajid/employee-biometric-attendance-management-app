@@ -46,6 +46,8 @@ export default function Devices() {
             }
         ]);
 
+        setConnected([]);
+
         localStorage.setItem("ipAddress", JSON.stringify([...ipAddress, {
             ip: inputRef.current.value,
             tag: tagRef.current.value
