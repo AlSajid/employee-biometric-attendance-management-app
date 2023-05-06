@@ -41,6 +41,7 @@ select {
   justify-content: center;
   align-items: center;
   border-radius: 7px;
+  overflow:hidden
 }
 
 .theme-grad {
@@ -73,6 +74,7 @@ button {
 
   border-radius: 12px;
   font-weight: 500;
+  overflow: hidden;
 }
 
 label {
