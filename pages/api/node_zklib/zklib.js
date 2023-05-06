@@ -37,25 +37,25 @@ class ZKLib {
                         this.ip
                     ))
                 }
-            case 'udp':
-                if (this.zklibUdp.socket) {
-                    try {
-                        const res = await udpCallback()
-                        return res
-                    } catch (err) {
-                        return Promise.reject(new ZKError(
-                            err,
-                            `[UDP] ${command}`,
-                            this.ip
-                        ))
-                    }
-                } else {
-                    return Promise.reject(new ZKError(
-                        new Error(`Socket isn't connected !`),
-                        `[UDP]`,
-                        this.ip
-                    ))
-                }
+            // case 'udp':
+            //     if (this.zklibUdp.socket) {
+            //         try {
+            //             const res = await udpCallback()
+            //             return res
+            //         } catch (err) {
+            //             return Promise.reject(new ZKError(
+            //                 err,
+            //                 `[UDP] ${command}`,
+            //                 this.ip
+            //             ))
+            //         }
+            //     } else {
+            //         return Promise.reject(new ZKError(
+            //             new Error(`Socket isn't connected !`),
+            //             `[UDP]`,
+            //             this.ip
+            //         ))
+            //     } //sajid
             default:
                 return Promise.reject(new ZKError(
                     new Error(`Socket isn't connected !`),

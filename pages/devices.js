@@ -162,10 +162,10 @@ export default function Devices() {
                                                         localStorage.setItem("ipAddress", JSON.stringify(newIpAddress));
                                                         toast.success(device.ip + ` has been disconnected`);
                                                     }}
-                                                    title="remove"
+                                                    title="Remove"
                                                     className="flex justify-center items-center"
                                                 >
-                                                    Remove
+                                                    -
                                                 </div>
                                             </div>
                                         </div>

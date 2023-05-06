@@ -73,7 +73,7 @@ export default function Hours() {
 
                 <form className="flex flex-col ">
                     <div className="my-1 flex flex-col">
-                        <label>Start</label>
+                        <label>In</label>
                         <input type="time" className="w-96" value={start} onChange={(e) => setStart(e.target.value)} />
                     </div>
 
@@ -83,7 +83,7 @@ export default function Hours() {
                     </div>
 
                     <div className="my-1 flex flex-col">
-                        <label>End</label>
+                        <label>Out</label>
                         <input type="time" className="w-96" value={end} onChange={(e) => setEnd(e.target.value)} />
                     </div>
 
