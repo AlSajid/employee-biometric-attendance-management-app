@@ -34,7 +34,7 @@ export default function App() {
     }, [])
 
     return (
-        <div className="flex w-10/12 h-1/2">
+        <div className="flex w-10/12">
             <input type="date" className="w-1/2" />
             <button>{pdf}</button>
         </div>
