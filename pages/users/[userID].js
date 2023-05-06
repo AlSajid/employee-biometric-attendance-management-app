@@ -80,11 +80,11 @@ export default function User() {
     }
 
     return (
-        <Board title={`(${userID})`}>
-            {loading ? <Loader msg="fetching" />
+        <Board title={`User ID ${userID}`}>
+            {loading
+                ? <Loader msg="fetching" />
                 :
                 <div className="m-3">
-
                     <div className="justify-center items-center flex w-full my-5">
                         <input type="date" className="" value={start} onChange={e => setStart(e.target.value)} />
                         <input type="date" className="" value={end} onChange={e => setEnd(e.target.value)} />
@@ -116,7 +116,6 @@ export default function User() {
                     </table>
 
                     <div className="w-11/12 mx-auto grid grid-cols-12">
-
                         {/* headers */}
                         <span className="col-span-3 table-header">Date</span>
                         <span className="col-span-3 table-header">Time</span>

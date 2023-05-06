@@ -1,7 +1,7 @@
 import Board from "@/components/Board";
 import Loader from "@/components/Loader";
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
 export default function Hours() {
@@ -22,7 +22,6 @@ export default function Hours() {
                     setLate(data.late);
                     setEnd(data.end);
                 }
-                console.log(data)
             })
             .catch(error => {
                 console.log(error)

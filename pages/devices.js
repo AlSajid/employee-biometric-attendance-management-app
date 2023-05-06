@@ -116,9 +116,7 @@ export default function Devices() {
                             loading
                                 ? <Loader msg={"connecting"} />
                                 :
-                                <button onClick={handleCheckConnection} className="w-2/3">
-                                    Test Connections
-                                </button>
+                                <button onClick={handleCheckConnection} className="w-2/3">Test</button>
                         }
                     </div>
 
@@ -151,12 +149,13 @@ export default function Devices() {
                                                     connected.includes(device.ip) && <span className="ml-3 animate-pulse">(Connected)</span>
                                                 }
                                             </div>
+
                                             <div className="col-span-6 table-content cursor-pointer">
                                                 {device.tag}
                                             </div>
-                                            <div className="col-span-1 flex justify-center items-center">
-                                                <button
-                                                    type="button"
+
+                                            <div className="col-span-1 flex justify-center items-center table-content hover:bg-red-500 cursor-pointer">
+                                                <div
                                                     onClick={() => {
                                                         const newIpAddress = ipAddress.filter((ip, i) => i !== index);
                                                         setIpAddress(newIpAddress);
@@ -164,8 +163,10 @@ export default function Devices() {
                                                         toast.success(device.ip + ` has been disconnected`);
                                                     }}
                                                     title="remove"
-                                                    className="bg-red-500 w-14 h-14 text-5xl flex justify-center items-center"
-                                                >-</button>
+                                                    className="flex justify-center items-center"
+                                                >
+                                                    Remove
+                                                </div>
                                             </div>
                                         </div>
                                     ))

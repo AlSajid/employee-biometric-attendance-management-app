@@ -1,16 +1,33 @@
 import Board from "@/components/Board";
 import Loader from "@/components/Loader";
 import Head from "next/head";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 
 export default function AddUser() {
     const [loading, setLoading] = useState(false);
+    const [ips, setIps] = useState([]);
 
     const nameRef = useRef();
     const idRef = useRef();
     const designationRef = useRef();
     const departmentRef = useRef();
+    const ipRef = useRef();
+    const birthRef = useRef();
+    const floorRef = useRef();
+    const sectionRef = useRef();
+    const bloodRef = useRef();
+    const joinDateRef = useRef();
+
+    const blood = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
+
+
+
+    useEffect(() => {
+        const ipAddress = localStorage.getItem('ipAddress') ?? '[]';
+        setIps(JSON.parse(ipAddress).map(obj => obj.ip));
+    }, []);
+
 
     const addUserHandler = (event) => {
         event.preventDefault();
@@ -18,22 +35,21 @@ export default function AddUser() {
             toast.error("Please fill all the fields");
             return
         }
-
-        const ipAddress = localStorage.getItem('ipAddress') ?? '[]';
-        const ips = JSON.parse(ipAddress).map(obj => obj.ip);
-
+        
         setLoading(true);
         fetch('http://localhost:3000/api/addUser', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 name: nameRef.current.value,
                 id: idRef.current.value,
-                ips,
                 designation: designationRef.current.value,
-                department: departmentRef.current.value
+                department: departmentRef.current.value,
+                birth: birthRef.current.value,
+                floor: floorRef.current.value,
+                section: sectionRef.current.value,
+                blood: bloodRef.current.value,
+                joinDate: joinDateRef.current.value,
             })
         })
             .then(res => res.json())
@@ -51,7 +67,6 @@ export default function AddUser() {
                     departmentRef.current.value = "";
                     return;
                 }
-
             })
             .catch(err => {
                 toast.error("Something went wrong");
@@ -61,13 +76,24 @@ export default function AddUser() {
 
     return (
         <Board title="Add User">
-
             <Head>
                 <title>Add User</title>
             </Head>
 
-            <form className="flex flex-col w-2/3 mx-auto my-3" onSubmit={addUserHandler}>
-                <div className="flex gap-5 my-1 justify-center">
+            <form className="flex flex-col w-11/12 mx-auto my-3" onSubmit={addUserHandler}>
+                <div className="flex gap-5 my-1 ">
+                    <div className="my-1 flex flex-col">
+                        <label>Device</label>
+
+                        <select ref={ipRef}>
+                            {
+                                ips.map((ip, index) =>
+                                    <option key={index} value={ip}
+                                        onClick={(e) => setIp([e.target.value])}>{ip}</option>)
+                            }
+                        </select>
+                    </div>
+
                     <div className="my-1 flex flex-col ">
                         <label>Name</label>
                         <input type="text" className="" ref={nameRef} />
@@ -75,11 +101,11 @@ export default function AddUser() {
 
                     <div className="my-1 flex flex-col">
                         <label>ID</label>
-                        <input type="text" ref={idRef} className="" />
+                        <input type="text" ref={idRef} className="" maxLength={7} />
                     </div>
                 </div>
 
-                <div className="my-1 flex gap-5 justify-center">
+                <div className="my-1 flex gap-5">
                     <div className="my-1 flex flex-col">
                         <label>Designation</label>
                         <input type="text" ref={designationRef} className="" />
@@ -89,14 +115,46 @@ export default function AddUser() {
                         <label>Department</label>
                         <input type="text" ref={departmentRef} className="" />
                     </div>
+
+                    <div className="my-1 flex flex-col">
+                        <label>Section</label>
+                        <input type="text" ref={sectionRef} className="" />
+                    </div>
                 </div>
 
-                <div className="flex justify-center items-center">
+                <div className="my-1 flex gap-5">
+                    <div className="my-1 flex flex-col">
+                        <label>Floor</label>
+                        <input type="number" ref={floorRef} className="" />
+                    </div>
+
+                    <div className="my-1 flex flex-col">
+                        <label>Blood Group</label>
+                        <select ref={bloodRef}>
+                            {
+                                blood.map((blood, index) =>
+                                    <option key={index} value={blood}>{blood}</option>)
+                            }
+                        </select>
+                    </div>
+
+                    <div className="my-1 flex flex-col">
+                        <label>Joining Date</label>
+                        <input type="date" ref={joinDateRef} className="" />
+                    </div>
+
+                    <div className="my-1 flex flex-col">
+                        <label>Birthday</label>
+                        <input type="date" ref={birthRef} className="" />
+                    </div>
+                </div>
+
+                <div className="flex items-center">
                     {
                         loading ?
                             <Loader msg="Sending" />
                             :
-                            <button className="text-white p-3  btn">Add User</button>
+                            <button className="text-white p-3 w-36 btn">Add User</button>
                     }
                 </div>
             </form>

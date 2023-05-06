@@ -8,7 +8,6 @@ export default function home() {
 
     return (
         <Board title="Home">
-            
             <Head>
                 <title>Home</title>
             </Head>

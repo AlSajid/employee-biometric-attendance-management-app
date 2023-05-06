@@ -73,17 +73,13 @@ export default function Home() {
   // });
 
   return (
-    <Board title={"Backup Data"}>
-
+    <Board title={"Backup Data"} actionButton={<button onClick={fetchAttendance}>Pull & Backup</button>}>
       <Head>
         <title>Fetch & Backup</title>
       </Head>
 
       <div className="flex flex-col items-center justify-center mx-auto">
-        <button className='my-3' onClick={fetchAttendance}>Pull & Backup</button>
-        {
-          loading && <Loader msg="pulling data" />
-        }
+        {loading && <Loader msg="pulling data" />}
         {
           attendance.length > 0 &&
 
