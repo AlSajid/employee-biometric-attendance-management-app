@@ -77,7 +77,7 @@ export default function Users() {
     return (
         <Board title="Users"
             actionButton={
-                <Report/>
+                <Report />
             }>
 
             <div className="m-5 text-white mx-auto">
@@ -92,9 +92,10 @@ export default function Users() {
                                 (
                                     <div className="w-full mx-auto grid grid-cols-12">
                                         <div className="col-span-4 table-header">Name</div>
-                                        <div className="col-span-2 table-header">ID</div>
-                                        <div className="col-span-2 table-header">Designation</div>
-                                        <div className="col-span-2 table-header">Department</div>
+                                        <div className="col-span-1 table-header">ID</div>
+                                        <div className="col-span-1 table-header">Designation</div>
+                                        <div className="col-span-1 table-header">Department</div>
+                                        <div className="col-span-1 table-header">Section</div>
                                         <div className="col-span-1 table-header">Actions</div>
 
                                         {
@@ -117,6 +118,10 @@ export default function Users() {
                                                     </div>
 
                                                     <div className="col-span-2 table-content">
+                                                        {user?.section}
+                                                    </div>
+
+                                                    <div className="col-span-2 table-content">
                                                         {user?.birth}
                                                     </div>
 
@@ -124,9 +129,7 @@ export default function Users() {
                                                         {user?.floor}
                                                     </div>
 
-                                                    <div className="col-span-2 table-content">
-                                                        {user?.section}
-                                                    </div>
+
 
                                                     <div className="col-span-2 table-content">
                                                         {user?.blood}

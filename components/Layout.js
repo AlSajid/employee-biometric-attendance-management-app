@@ -61,7 +61,7 @@ export default function Layout({ children }) {
                             </div>
                         </div>
 
-                        <div className="flex flex-col justify-center items-center bg-black text-white h-screen md:hidden">
+                        <div className="flex flex-col justify-center items-center bg-black text-white h-screen lg:hidden">
                             <h1 className="text-5xl font-bold ">Attention ⚠️</h1>
                             <p className="text-gray-600 text-center my-5 text-xl">
                                 This software is not supported on small screen devices.
