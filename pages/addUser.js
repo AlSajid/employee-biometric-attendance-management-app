@@ -43,7 +43,7 @@ export default function AddUser() {
             body: JSON.stringify({
                 name: nameRef.current.value,
                 id: idRef.current.value,
-                ips: ipRef.current.value,
+                ips,
                 designation: designationRef.current.value,
                 department: departmentRef.current.value,
                 birth: birthRef.current.value,
