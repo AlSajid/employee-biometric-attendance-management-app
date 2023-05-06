@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import Navigation from "./Navigation";
+import Image from "next/image";
 
 export default function Layout({ children }) {
     const [output, setOutput] = useState(null)
+    const [logo, setLogo] = useState("")
 
     useEffect(() => {
         const today = new Date();
@@ -23,6 +25,14 @@ export default function Layout({ children }) {
                 </div>
             )
         }
+
+        fetch("http://localhost:3000/api/company")
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.logo)
+                    setLogo(data.logo)
+            })
+            .catch((err) => console.log(err.code))
     }, [])
 
     return (
@@ -31,16 +41,35 @@ export default function Layout({ children }) {
                 output ?
                     output
                     :
-                    <div className="h-screen flex justify-center items-center ">
-                        <div className="h-5/6 flex w-full">
-                            <Navigation />
+                    <>
+                        <div className="h-screen md:flex justify-center items-center hidden">
+                            <div className="h-5/6 flex w-full">
+                                <Navigation />
 
-                            <div className="w-10/12 mx-auto" >
-                                {children}
+                                {logo &&
+                                    <div className="fixed right-3 top-3">
+                                        <Image src={logo} alt="logo" width={0} height={0}
+                                            style={{ height: "20px", width: "auto" }} />
+                                    </div>
+                                }
+
+                                <div className="w-11/12 mx-auto" >
+                                    {children}
+                                </div>
+
+
                             </div>
-
                         </div>
-                    </div>
+
+                        <div className="flex flex-col justify-center items-center bg-black text-white h-screen md:hidden">
+                            <h1 className="text-5xl font-bold ">Attention ⚠️</h1>
+                            <p className="text-gray-600 text-center my-5 text-xl">
+                                This software is not supported on small screen devices.
+                                <br />
+                                Please use it in maximized window mode on your PC.
+                            </p>
+                        </div>
+                    </>
             }
         </>
     )
