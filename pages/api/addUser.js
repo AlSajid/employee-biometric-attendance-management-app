@@ -3,7 +3,7 @@ import database from './database';
 import errorHandler from './utilities/errorHandler';
 
 export default async function handler(req, res) {
-    const { name, ips } = req.body;
+    const { name, ips, id } = req.body;
     const { zkInstance, connected } = await connect(ips);
 
     if (connected.length === 0) {
