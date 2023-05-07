@@ -3,7 +3,7 @@ import database from './database';
 import errorHandler from './utilities/errorHandler';
 
 export default async function handler(req, res) {
-    const { name, id, ips, designation, department } = req.body;
+    const { name, ips } = req.body;
     const { zkInstance, connected } = await connect(ips);
 
     if (connected.length === 0) {
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
     try {
         await zkInstance.setUser(name, "", id, id);
-        const insert = await database.collection('users').insertOne({ name, id, designation, department });
+        const insert = await database.collection('users').insertOne(req.body);
 
         if (insert.acknowledged && insert.insertedId) {
             res.status(200).json({ message: "success" })
