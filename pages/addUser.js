@@ -74,7 +74,7 @@ export default function AddUser() {
                 }
             })
             .catch(err => {
-                toast.error("Something went wrong");
+                toast.error("Something went to Evan");
             })
             .finally(() => setLoading(false))
     }
