@@ -21,8 +21,6 @@ export default function AddUser() {
 
     const blood = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 
-
-
     useEffect(() => {
         const ipAddress = localStorage.getItem('ipAddress') ?? '[]';
         setIps(JSON.parse(ipAddress).map(obj => obj.ip));

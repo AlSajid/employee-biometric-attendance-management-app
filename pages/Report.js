@@ -27,7 +27,7 @@ export default function App() {
         setPdf(
             <PDFDownloadLink document={<MyDoc />} fileName="somename.pdf">
                 {({ blob, url, loading, error }) =>
-                    loading ? 'Loading document...' : 'Download now!'
+                    loading ? 'Loading document...' : 'Download Report'
                 }
             </PDFDownloadLink>
         )
