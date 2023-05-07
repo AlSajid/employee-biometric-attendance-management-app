@@ -17,7 +17,7 @@ export default function AddUser() {
     const floorRef = useRef();
     const sectionRef = useRef();
     const bloodRef = useRef();
-    const joined = useRef();
+    const joinedRef = useRef();
 
     const blood = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 
@@ -50,7 +50,7 @@ export default function AddUser() {
                 floor: floorRef.current.value,
                 section: sectionRef.current.value,
                 blood: bloodRef.current.value,
-                joined: joined.current.value,
+                joined: joinedRef.current.value,
             })
         })
             .then(res => res.json())
@@ -146,7 +146,7 @@ export default function AddUser() {
 
                     <div className="my-1 flex flex-col">
                         <label>Joining Date</label>
-                        <input type="date" ref={joined} className="" />
+                        <input type="date" ref={joinedRef} className="" />
                     </div>
 
                     <div className="my-1 flex flex-col">
