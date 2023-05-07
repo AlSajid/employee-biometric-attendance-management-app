@@ -53,11 +53,9 @@ export default function Layout({ children }) {
                                     </div>
                                 }
 
-                                <div className="w-11/12 mx-auto" >
+                                <div className="w-full mx-auto" >
                                     {children}
                                 </div>
-
-
                             </div>
                         </div>
 

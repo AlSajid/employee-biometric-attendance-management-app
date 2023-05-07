@@ -17,7 +17,7 @@ export default function AddUser() {
     const floorRef = useRef();
     const sectionRef = useRef();
     const bloodRef = useRef();
-    const joinDateRef = useRef();
+    const joined = useRef();
 
     const blood = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 
@@ -35,7 +35,7 @@ export default function AddUser() {
             toast.error("Please fill all the fields");
             return
         }
-        
+
         setLoading(true);
         fetch('http://localhost:3000/api/addUser', {
             method: 'POST',
@@ -50,7 +50,7 @@ export default function AddUser() {
                 floor: floorRef.current.value,
                 section: sectionRef.current.value,
                 blood: bloodRef.current.value,
-                joinDate: joinDateRef.current.value,
+                joined: joined.current.value,
             })
         })
             .then(res => res.json())
@@ -66,6 +66,11 @@ export default function AddUser() {
                     idRef.current.value = "";
                     designationRef.current.value = "";
                     departmentRef.current.value = "";
+                    birthRef.current.value = "";
+                    floorRef.current.value = "";
+                    sectionRef.current.value = "";
+                    bloodRef.current.value = "";
+                    joined.current.value = "";
                     return;
                 }
             })
@@ -141,7 +146,7 @@ export default function AddUser() {
 
                     <div className="my-1 flex flex-col">
                         <label>Joining Date</label>
-                        <input type="date" ref={joinDateRef} className="" />
+                        <input type="date" ref={joined} className="" />
                     </div>
 
                     <div className="my-1 flex flex-col">

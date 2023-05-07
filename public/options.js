@@ -12,7 +12,7 @@ const menu =
         { option: "Office Hours", icon: <AiOutlineFieldTime />, path: "/hours" },
         { option: "Add User", icon: <AiOutlineUserAdd />, path: "/addUser" },
         { option: "Users", icon: <RiUserStarLine />, path: "/users" },
-        { option: "Fetch Data", icon: <BiCloudDownload />, path: "/attendance" },
+        { option: "Pull Data", icon: <BiCloudDownload />, path: "/attendance" },
     ]
 
 export default menu;

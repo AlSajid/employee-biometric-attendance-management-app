@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+a{
+  overflow: hidden;
+}
+
 input,
 select {
   border-width: 2px;
@@ -41,7 +45,7 @@ select {
   justify-content: center;
   align-items: center;
   border-radius: 7px;
-  overflow:hidden
+  overflow: hidden;
 }
 
 .theme-grad {
@@ -69,10 +73,9 @@ button {
   font-size: 16px;
   color: white;
 
-  padding: 12px;
-  margin: 12px 0px;
+  padding: 7px;
 
-  border-radius: 12px;
+  border-radius: 7px;
   font-weight: 500;
   overflow: hidden;
 }

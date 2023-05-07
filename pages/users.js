@@ -91,51 +91,53 @@ export default function Users() {
                                 :
                                 (
                                     <div className="w-full mx-auto grid grid-cols-12">
-                                        <div className="col-span-4 table-header">Name</div>
+                                        <div className="col-span-3 table-header">Name</div>
                                         <div className="col-span-1 table-header">ID</div>
                                         <div className="col-span-1 table-header">Designation</div>
                                         <div className="col-span-1 table-header">Department</div>
                                         <div className="col-span-1 table-header">Section</div>
+                                        <div className="col-span-1 table-header">Birthday</div>
+                                        <div className="col-span-1 table-header">Floor</div>
+                                        <div className="col-span-1 table-header">Blood</div>
+                                        <div className="col-span-1 table-header">Joined</div>
                                         <div className="col-span-1 table-header">Actions</div>
 
                                         {
                                             users?.map((user, index) => (
                                                 <div key={index} className="grid col-span-12 grid-cols-12">
-                                                    <div className="col-span-4 table-content" style={{ justifyContent: "start" }}>
+                                                    <div className="col-span-3 table-content" style={{ justifyContent: "start" }}>
                                                         <span>{user.name}</span>
                                                     </div>
 
-                                                    <div className="col-span-2 table-content">
+                                                    <div className="col-span-1 table-content">
                                                         {user.id}
                                                     </div>
 
-                                                    <div className="col-span-2 table-content">
+                                                    <div className="col-span-1 table-content">
                                                         {user?.designation}
                                                     </div>
 
-                                                    <div className="col-span-2 table-content">
+                                                    <div className="col-span-1 table-content">
                                                         {user?.department}
                                                     </div>
 
-                                                    <div className="col-span-2 table-content">
+                                                    <div className="col-span-1 table-content">
                                                         {user?.section}
                                                     </div>
 
-                                                    <div className="col-span-2 table-content">
+                                                    <div className="col-span-1 table-content">
                                                         {user?.birth}
                                                     </div>
 
-                                                    <div className="col-span-2 table-content">
+                                                    <div className="col-span-1 table-content">
                                                         {user?.floor}
                                                     </div>
 
-
-
-                                                    <div className="col-span-2 table-content">
+                                                    <div className="col-span-1 table-content">
                                                         {user?.blood}
                                                     </div>
 
-                                                    <div className="col-span-2 table-content">
+                                                    <div className="col-span-1 table-content">
                                                         {user?.joinDate}
                                                     </div>
 
