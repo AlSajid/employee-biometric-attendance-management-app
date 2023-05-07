@@ -58,6 +58,7 @@ export default function AddUser() {
                 console.log(data)
                 if (data.error) {
                     toast.error(data.error);
+                    return
                 }
 
                 if (data.message === "success") {
