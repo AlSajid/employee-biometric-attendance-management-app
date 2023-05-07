@@ -11,7 +11,7 @@ export default function errorHandler(error) {
             break
 
         case 11000:
-            res.status(200).json({ message: "This user ID already exists" })
+            msg = "This user ID already exists";
             break;
 
         default:
