@@ -138,7 +138,7 @@ export default function Users() {
                                                     </div>
 
                                                     <div className="col-span-1 table-content">
-                                                        {user?.joinDate}
+                                                        {user?.joined}
                                                     </div>
 
                                                     <div className="col-span-1 flex justify-around">
