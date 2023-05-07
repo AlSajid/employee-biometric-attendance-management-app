@@ -69,12 +69,12 @@ export default function AddUser() {
                     floorRef.current.value = "";
                     sectionRef.current.value = "";
                     bloodRef.current.value = "";
-                    joined.current.value = "";
+                    joinedRef.current.value = "";
                     return;
                 }
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
                 toast.error("Something went to Evan");
             })
             .finally(() => setLoading(false))
