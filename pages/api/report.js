@@ -11,6 +11,7 @@ export default async function handler(req, res) {
         filter.end = "2500-01-01"
 
     try {
+
         const hours = await database.collection('hours').findOne()
         const attendance = await database.collection('attendance').find(
             { deviceUserId: userID }
@@ -21,5 +22,4 @@ export default async function handler(req, res) {
     catch (error) {
         res.status(500).json(errorHandler(error))
     }
-
 }

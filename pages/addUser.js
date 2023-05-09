@@ -53,7 +53,7 @@ export default function AddUser() {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.error) {
                     toast.error(data.error);
                     return
@@ -87,7 +87,7 @@ export default function AddUser() {
             </Head>
 
             <form className="flex flex-col w-11/12 mx-auto my-3" onSubmit={addUserHandler}>
-                <div className="flex gap-5 my-1 ">
+                <div className="grid grid-cols-3 gap-7 my-1 ">
                     <div className="my-1 flex flex-col">
                         <label>Device</label>
 
@@ -111,7 +111,7 @@ export default function AddUser() {
                     </div>
                 </div>
 
-                <div className="my-1 flex gap-5">
+                <div className="my-1 grid grid-cols-3 gap-7">
                     <div className="my-1 flex flex-col">
                         <label>Designation</label>
                         <input type="text" ref={designationRef} className="" />
@@ -128,14 +128,14 @@ export default function AddUser() {
                     </div>
                 </div>
 
-                <div className="my-1 flex gap-5">
+                <div className="my-1 grid grid-cols-4 gap-7">
                     <div className="my-1 flex flex-col">
                         <label>Floor</label>
                         <input type="number" ref={floorRef} className="" />
                     </div>
 
                     <div className="my-1 flex flex-col">
-                        <label>Blood Group</label>
+                        <label>Blood</label>
                         <select ref={bloodRef}>
                             {
                                 blood.map((blood, index) =>
@@ -145,13 +145,13 @@ export default function AddUser() {
                     </div>
 
                     <div className="my-1 flex flex-col">
-                        <label>Joining Date</label>
-                        <input type="date" ref={joinedRef} className="" />
+                        <label>Birthday</label>
+                        <input type="date" ref={birthRef} className="" />
                     </div>
 
                     <div className="my-1 flex flex-col">
-                        <label>Birthday</label>
-                        <input type="date" ref={birthRef} className="" />
+                        <label>Joined</label>
+                        <input type="date" ref={joinedRef} className="" />
                     </div>
                 </div>
 

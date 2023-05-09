@@ -2,6 +2,7 @@ import database from "./database";
 import errorHandler from "./utilities/errorHandler";
 
 export default async function handler(req, res) {
+
     try {
         switch (req.method) {
             case "POST":
@@ -23,6 +24,7 @@ export default async function handler(req, res) {
         }
     }
     catch (error) {
+        console.log("error");
         res.status(500).json(errorHandler(error));
     }
 }

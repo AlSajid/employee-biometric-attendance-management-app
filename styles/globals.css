@@ -2,39 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-a{
+a {
   overflow: hidden;
 }
 
 input,
 select {
-  border-width: 2px;
-  border-color: #09ba96;
-  border-radius: 12px;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 7px;
+  border-color: rgb(15, 118, 110, 0.3);
 
-  padding: 12px;
-  margin: 12px;
+  padding: 7px;
+  margin: 7px;
 
-  background-color: rgba(12, 161, 177, 0.1);
-  color: #338070;
+  background-color:  rgb(240, 253, 250);
+  color:rgb(15 118 110);
 
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 500;
   width: 100%;
   outline: none;
 }
 
+input:focus {
+  border-style: dotted;
+  border-width: 3px;
+  border-color: rgb(15 118 110);
+
+
+  transition: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
 .table-header {
-  color: #338070;
-  font-size: 18px;
+  color: rgb(15 118 110);
+  font-size: 15x;
   font-weight: 600;
   text-align: center;
 }
 
 .table-content {
-  background-color: #338070;
+  background-color: rgb(15 118 110);
 
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   color: white;
 
@@ -52,15 +64,8 @@ select {
   background-image: linear-gradient(#09ba96, #0ca0b1);
 }
 
-input:focus {
-  border-width: 5px;
-  transition: all;
-  transition-duration: 100ms;
-  transition-timing-function: ease-in-out;
-}
-
 .theme-text {
-  color: #338070;
+  color: rgb(15 118 110)
 }
 
 .theme-bg {
@@ -70,7 +75,7 @@ input:focus {
 button {
   background-image: linear-gradient(#09ba96, #0ca0b1);
   width: 50%;
-  font-size: 16px;
+  font-size: 15px;
   color: white;
 
   padding: 7px;
@@ -83,6 +88,6 @@ button {
 label {
   font-size: 24px;
   margin-left: 12px;
-  color: #338070;
+  color: rgb(15 118 110);
   font-weight: bold;
 }

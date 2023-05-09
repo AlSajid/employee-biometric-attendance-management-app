@@ -71,23 +71,23 @@ export default function Hours() {
 
             <div className="m-3 flex justify-center items-center">
 
-                <form className="flex flex-col ">
+                <form className="flex flex-col my-3">
                     <div className="my-1 flex flex-col">
-                        <label>In</label>
+                        <label>in</label>
                         <input type="time" className="w-96" value={start} onChange={(e) => setStart(e.target.value)} />
                     </div>
 
-                    <div className="my-1 flex flex-col">
-                        <label>Break</label>
+                    <div className="my-3 flex flex-col">
+                        <label>break</label>
                         <input type="time" className="w-96" value={late} onChange={(e) => setLate(e.target.value)} />
                     </div>
 
-                    <div className="my-1 flex flex-col">
-                        <label>Out</label>
+                    <div className="my-3 flex flex-col">
+                        <label>out</label>
                         <input type="time" className="w-96" value={end} onChange={(e) => setEnd(e.target.value)} />
                     </div>
 
-                    <div className="flex justify-center items-center ">
+                    <div className="flex justify-center items-center my-7">
                         {
                             loading ?
                                 <Loader msg="updating" />

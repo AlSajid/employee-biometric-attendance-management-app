@@ -104,11 +104,11 @@ export default function Devices() {
                 <div className="grid grid-cols-3">
 
                     <form onSubmit={addIpAddress} className="col-span-2" >
-                        <div className="flex gap-3 my-3 items-center">
+                        <div className="grid grid-cols-4 gap-3 my-3 items-center">
                             <input ref={inputRef} type="text" placeholder="192.168.31.100" autoComplete="off" />
-                            <input ref={tagRef} type="text" placeholder="Device Info" autoComplete="off" />
+                            <input ref={tagRef} type="text" className="col-span-2" placeholder="Device Info" autoComplete="off" />
                             <button
-                                className="theme-bg w-14 h-14 text-3xl flex justify-center items-center"
+                                className="theme-bg text-xl font-black flex justify-center items-center"
                                 onClick={addIpAddress}>+</button>
                         </div>
                     </form>
@@ -124,7 +124,7 @@ export default function Devices() {
 
                 </div>
 
-                <div className="border-emerald-300 border" />
+                <div className="border-teal-300 border-2" />
 
                 {/* devices list */}
                 {

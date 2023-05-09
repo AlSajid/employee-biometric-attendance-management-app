@@ -8,6 +8,7 @@ export default async function handler(req, res) {
         const { zkInstance } = await connect(ips);
         await zkInstance.deleteUser(id)
 
+
         const deleteUser = await database.collection("users").deleteOne({ id })
 
         if (deleteUser.acknowledged && deleteUser.deletedCount === 1) {

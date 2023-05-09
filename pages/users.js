@@ -1,6 +1,7 @@
 import Board from "@/components/Board";
 import Loader from "@/components/Loader";
 import Report from "@/pages/Report";
+import getTime from "@/utilities/getTime";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -96,9 +97,9 @@ export default function Users() {
                                         <div className="col-span-1 table-header">Designation</div>
                                         <div className="col-span-1 table-header">Department</div>
                                         <div className="col-span-1 table-header">Section</div>
-                                        <div className="col-span-1 table-header">Birthday</div>
                                         <div className="col-span-1 table-header">Floor</div>
                                         <div className="col-span-1 table-header">Blood</div>
+                                        <div className="col-span-1 table-header">Birthday</div>
                                         <div className="col-span-1 table-header">Joined</div>
                                         <div className="col-span-1 table-header">Actions</div>
 
@@ -126,10 +127,6 @@ export default function Users() {
                                                     </div>
 
                                                     <div className="col-span-1 table-content">
-                                                        {user?.birth}
-                                                    </div>
-
-                                                    <div className="col-span-1 table-content">
                                                         {user?.floor}
                                                     </div>
 
@@ -138,7 +135,11 @@ export default function Users() {
                                                     </div>
 
                                                     <div className="col-span-1 table-content">
-                                                        {user?.joined}
+                                                        {getTime(user?.birth, "date")}
+                                                    </div>
+
+                                                    <div className="col-span-1 table-content">
+                                                        {getTime(user?.joined, "date")}
                                                     </div>
 
                                                     <div className="col-span-1 flex justify-around">

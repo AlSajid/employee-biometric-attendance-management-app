@@ -9,7 +9,7 @@ const menu =
     [
         { option: "Home", icon: <VscHome />, path: "/" },
         { option: "Connections", icon: <MdWifi />, path: "/devices" },
-        { option: "Office Hours", icon: <AiOutlineFieldTime />, path: "/hours" },
+        { option: "Work Hours", icon: <AiOutlineFieldTime />, path: "/hours" },
         { option: "Add User", icon: <AiOutlineUserAdd />, path: "/addUser" },
         { option: "Users", icon: <RiUserStarLine />, path: "/users" },
         { option: "Pull Data", icon: <BiCloudDownload />, path: "/attendance" },
