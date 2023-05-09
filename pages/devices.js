@@ -102,7 +102,6 @@ export default function Devices() {
 
             <div className="flex flex-col m-3">
                 <div className="grid grid-cols-3">
-
                     <form onSubmit={addIpAddress} className="col-span-2" >
                         <div className="grid grid-cols-4 gap-3 my-3 items-center">
                             <input ref={inputRef} type="text" placeholder="192.168.31.100" autoComplete="off" />
@@ -121,7 +120,6 @@ export default function Devices() {
                                 <button onClick={handleCheckConnection} className="w-2/3">Test</button>
                         }
                     </div>
-
                 </div>
 
                 <div className="border-teal-300 border-2" />
@@ -132,13 +130,10 @@ export default function Devices() {
                     (
                         <>
                             <div className="grid my-3 grid-cols-12 w-11/12 mx-auto">
-
-
                                 <div className="col-span-1 table-header">No</div>
                                 <div className="col-span-4 table-header">IP Address</div>
                                 <div className="col-span-6 table-header">Device Info</div>
                                 <div className="col-span-1 table-header">Action</div>
-
                                 {
                                     ipAddress.map((device, index) => (
                                         <div key={index} className="grid grid-cols-12 col-span-12 gap-5 ">
