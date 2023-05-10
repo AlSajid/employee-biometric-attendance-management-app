@@ -32,7 +32,8 @@ export default function Home() {
   }
 
   const fetchAttendance = () => {
-    setLoading(true)
+    setLoading(true);
+    setAttendance([])
 
     const ipAddress = localStorage.getItem('ipAddress') ?? '[]';
     const ips = JSON.parse(ipAddress).map(obj => obj.ip);
