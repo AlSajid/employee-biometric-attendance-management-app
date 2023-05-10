@@ -13,6 +13,7 @@ export default function Home() {
     const attendance = JSON.parse(localStorage.getItem('attendance')) || []
     attendance.push(...data)
     localStorage.setItem('attendance', JSON.stringify(attendance))
+    console.log(attendance)
 
     fetch("http://localhost:3000/api/backupAttendance", {
       method: "POST",
@@ -46,7 +47,7 @@ export default function Home() {
     })
       .then(res => res.json())
       .then(data => {
-        
+
         if (data.error) {
           toast.error(data.error)
           return;
