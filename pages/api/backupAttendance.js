@@ -3,7 +3,8 @@ import Attendance from "./models/attendance";
 import errorHandler from "./utilities/errorHandler"
 
 export default async function handler(req, res) {
-    const { attendance } = req.body
+    const { attendance } = req.body;
+    console.log(attendance)
 
     try {
         await connectDb()

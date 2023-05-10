@@ -13,6 +13,7 @@ export default function Home() {
     const attendance = JSON.parse(localStorage.getItem('attendance')) || []
     attendance.push(...data)
     localStorage.setItem('attendance', JSON.stringify(attendance))
+    console.log("16" + attendance);
 
     fetch("http://localhost:3000/api/backupAttendance", {
       method: "POST",
@@ -32,7 +33,7 @@ export default function Home() {
 
   const fetchAttendance = () => {
     setLoading(true)
- 
+
     const ipAddress = localStorage.getItem('ipAddress') ?? '[]';
     const ips = JSON.parse(ipAddress).map(obj => obj.ip);
 
@@ -53,6 +54,7 @@ export default function Home() {
 
         if (data.length > 0) {
           backupAttendance(data)
+          console.log("57:" + data)
         }
 
         if (data.length === 0) {
