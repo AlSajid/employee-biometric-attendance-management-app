@@ -11,8 +11,6 @@ export default async function handler(req, res) {
     try {
         await connectDb()
         const insert = await Attendance.insertMany(req.body)
-        console.log(insert);
-        console.log(attendance)
 
         if (insert.acknowledged && insert.insertedCount > 0) {
             res.status(200).json({ message: "success" })

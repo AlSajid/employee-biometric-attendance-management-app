@@ -5,6 +5,7 @@ const attendanceSchema = new Schema({
     deviceUserId: { type: String, required: true },
     recordTime: { type: Date, required: true },
     ip: { type: String, required: true },
+    versionKey: false
 });
 
 const Attendance = models.Attendance || model('Attendance', attendanceSchema);
