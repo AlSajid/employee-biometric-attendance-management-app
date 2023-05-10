@@ -14,18 +14,6 @@ export default function Home() {
     attendance.push(...data)
     localStorage.setItem('attendance', JSON.stringify(attendance))
 
-    // const attendance =
-    // {
-    //   attendance: [
-    //     {
-    //       userSn: 3000,
-    //       deviceUserId: "1",
-    //       recordTime: new Date("2023-05-05T17:35:57.000Z"),
-    //       ip: "192.168.31.119"
-    //     }
-    //   ]
-    // }
-
     fetch("http://localhost:3000/api/backupAttendance", {
       method: "POST",
       headers: {
