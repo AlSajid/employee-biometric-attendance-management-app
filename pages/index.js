@@ -1,8 +1,8 @@
-import HomeButton from "@/components/HomeButton";
-import menu from "../public/options";
 import Board from "@/components/Board";
 import Link from "next/link";
 import Head from "next/head";
+import HomeButton from "@/components/HomeButton";
+import menu from "@/public/options";
 
 export default function home() {
 

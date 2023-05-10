@@ -20,7 +20,9 @@ export default function App() {
     const [date, setDate] = useState(null)
 
     useEffect(() => {
+        console.log("fired")
         if(!date) return;
+        console.log("entered")
 
         fetch("http://localhost:3000/api/dailyReport", {
             method: "POST",
