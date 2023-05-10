@@ -4,7 +4,7 @@ import errorHandler from "./utilities/errorHandler"
 
 export default async function handler(req, res) {
     const { attendance } = req.body;
-    console.log("data:" + attendance)
+    console.log("data:" + req.body)
     res.status(200).json({ message: "success" })
 
 
