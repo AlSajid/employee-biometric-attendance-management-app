@@ -2,7 +2,7 @@ import Board from '@/components/Board';
 import Loader from '@/components/Loader';
 import getTime from '@/utilities/getTime';
 import Head from 'next/head';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-hot-toast';
 
 export default function Home() {
@@ -13,7 +13,6 @@ export default function Home() {
     const attendance = JSON.parse(localStorage.getItem('attendance')) || []
     attendance.push(...data)
     localStorage.setItem('attendance', JSON.stringify(attendance))
-    console.log("16" + attendance);
 
     fetch("http://localhost:3000/api/backupAttendance", {
       method: "POST",
@@ -33,7 +32,7 @@ export default function Home() {
 
   const fetchAttendance = () => {
     setLoading(true);
-    setAttendance([])
+    setAttendance([]);
 
     const ipAddress = localStorage.getItem('ipAddress') ?? '[]';
     const ips = JSON.parse(ipAddress).map(obj => obj.ip);
@@ -47,7 +46,7 @@ export default function Home() {
     })
       .then(res => res.json())
       .then(data => {
-
+        console.log(data)
         if (data.error) {
           toast.error(data.error)
           return;
@@ -55,7 +54,6 @@ export default function Home() {
 
         if (data.length > 0) {
           backupAttendance(data)
-          console.log("57:" + data)
         }
 
         if (data.length === 0) {
@@ -69,7 +67,6 @@ export default function Home() {
   }
 
   // const socket = new WebSocket('ws://localhost:3333');
-
   // socket.addEventListener('message', (event) => {
   //   console.log(event.data);
   // });
@@ -84,15 +81,11 @@ export default function Home() {
         {loading && <Loader msg="pulling data" />}
         {
           attendance.length > 0 &&
-
           <div className='m-3 w-11/12 mx-auto grid grid-cols-12 text-center'>
-
             <span className='col-span-4 table-header'>ID</span>
             <span className='col-span-4 table-header'>IP</span>
             <span className='col-span-4 table-header'>time</span>
-
             {
-
               attendance.map((item, index) => (
                 <tr key={index} className='col-span-12 grid grid-cols-12'>
                   <td className='col-span-4 table-content'>{item.deviceUserId}</td>
@@ -101,7 +94,6 @@ export default function Home() {
                 </tr>
               ))
             }
-
           </div>
         }
       </div >

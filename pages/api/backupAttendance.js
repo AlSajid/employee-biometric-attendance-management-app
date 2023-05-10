@@ -1,10 +1,10 @@
-import {connectDb} from "./db";
+import { connectDb } from "./db";
 import Attendance from "./models/attendance";
 import errorHandler from "./utilities/errorHandler"
 
 export default async function handler(req, res) {
     const { attendance } = req.body;
-    console.log(attendance)
+    console.log("data:" + attendance)
 
     try {
         await connectDb()
