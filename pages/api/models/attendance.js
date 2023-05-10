@@ -1,8 +1,10 @@
 import { models, model, Schema } from 'mongoose';
 
 const attendanceSchema = new Schema({
-    logo: { type: String, },
-    name: { type: String },
+    userSn: { type: String, required: true },
+    deviceUserId: { type: String, required: true },
+    recordTime: { type: Date, required: true },
+    ip: { type: String, required: true },
 });
 
 const Attendance = models.Attendance || model('Attendance', attendanceSchema);
