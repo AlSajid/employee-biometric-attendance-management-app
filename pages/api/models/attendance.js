@@ -7,8 +7,7 @@ const attendanceSchema = new Schema(
         recordTime: { type: Date, required: true },
         ip: { type: String, required: true },
 
-    },
-    { versionKey: false }
+    }
 );
 
 const Attendance = models.Attendance || model('Attendance', attendanceSchema);

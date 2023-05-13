@@ -1,4 +1,5 @@
 export default function getTime(date, type) {
+    if (date === undefined) return '';
     const inputDate = new Date(date);
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

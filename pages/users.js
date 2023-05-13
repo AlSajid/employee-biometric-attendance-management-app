@@ -76,11 +76,7 @@ export default function Users() {
     }
 
     return (
-        <Board title="Users"
-            actionButton={
-                <Report />
-            }>
-
+        <Board title="Users" actionButton={<Report />}>
             <div className="m-5 text-white mx-auto">
                 {
                     loading && !users
