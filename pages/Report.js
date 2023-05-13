@@ -136,7 +136,7 @@ const MyDoc = ({ company, users, date }) => (
 
 export default function App() {
     const [pdfBtn, setPdfBtn] = useState(null)
-    const [date, setDate] = useState(null)
+    const [date, setDate] = useState(getTime(new Date(), "input"))
 
     useEffect(() => {
         if (!date) return;
@@ -150,7 +150,6 @@ export default function App() {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setPdfBtn(
                     <>
                         <PDFDownloadLink document={
@@ -175,7 +174,7 @@ export default function App() {
 
     return (
         <div className="flex w-10/12 justify-end items-center">
-            <input type="date" className="w-1/2" onChange={(e) => setDate(e.target.value)} />
+            <input type="date" className="w-1/2" onChange={(e) => setDate(e.target.value)} value={date}/>
             {pdfBtn && <div className='w-1/2'>{pdfBtn}</div>}
         </div>
     );

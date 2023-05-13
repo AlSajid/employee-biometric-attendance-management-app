@@ -20,6 +20,8 @@ export default function getTime(date, type) {
             return `${day} ${month} ${year}`;
         case 'time':
             return formattedTime;
+        case 'input':
+            return `${year}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
 
         case 'compare':
             return parseInt(inputDate.getHours() + minutes + seconds);
