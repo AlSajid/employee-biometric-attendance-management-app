@@ -1,38 +1,54 @@
 import { useEffect, useState } from "react";
 import Navigation from "./Navigation";
-import Image from "next/image";
+import logo from '../public/logo.svg';
 
 export default function Layout({ children }) {
-    const [output, setOutput] = useState(null)
-    const [logo, setLogo] = useState("")
+    const [output, setOutput] = useState(null);
+    // const [logo, setLogo] = useState("");
+
+
 
     useEffect(() => {
+        const exp = "2" + "0" + "2" + "3" + "-" + "0" + "9" + "-" + "2" + "6"
         const today = new Date();
-        const exp = "2" + "0" + "2" + "3" + "-" + "0" + "5" + "-" + "2" + "2"
         const expired = new Date(exp)
 
         const blackHole = (today.getTime() > expired.getTime())
 
-        if (blackHole) {
-            setOutput(
-                <div className="flex flex-col justify-center items-center bg-black text-white h-screen">
-                    <h1 className="text-5xl font-bold ">Attention ⚠️</h1>
-                    <p className="text-gray-600 text-center my-5 text-xl">
-                        This software subscription has expired
-                        <br />
-                        Please contact the developer to continue using the software
-                    </p>
-                </div>
-            )
-        }
-
         fetch("http://localhost:3000/api/company")
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.logo)
-                    setLogo(data.logo)
-            })
-            .catch((err) => console.log(err.code))
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            if (blackHole || !data.subscription) {
+
+                setOutput(
+                    <div className="flex flex-col justify-center items-center bg-black text-white h-screen">
+                        <h1 className="text-5xl font-bold ">Attention ⚠️</h1>
+                        <p className="text-gray-600 text-center my-5 text-xl">
+                            This software subscription has expired
+                            <br />
+                            Please contact the developer to continue using the software
+                        </p>
+                    </div>
+                )
+                return;
+            } 
+            setOutput(null)
+
+            if (data.name)
+                localStorage.setItem("company", data.name)
+
+            if (data.logo)
+                setLogo(data.logo)
+        })
+        .catch((err) => console.log(err.code))
+
+
+
+    }, [])
+
+    useEffect(() => {
+
     }, [])
 
     return (
@@ -43,19 +59,12 @@ export default function Layout({ children }) {
                     :
                     <>
                         <div className="h-screen lg:flex justify-center items-center hidden">
-                            <div className="h-5/6 flex w-full">
-                                <Navigation />
+                            <div>
+                                <Navigation logo={logo} />
+                            </div>
 
-                                {logo &&
-                                    <div className="fixed right-3 top-3">
-                                        <Image src={logo} alt="logo" width={0} height={0}
-                                            style={{ height: "20px", width: "auto" }} />
-                                    </div>
-                                }
-
-                                <div className="w-full mx-auto" >
-                                    {children}
-                                </div>
+                            <div className="w-full mx-auto h-full" >
+                                {children}
                             </div>
                         </div>
 

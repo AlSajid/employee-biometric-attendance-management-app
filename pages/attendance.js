@@ -67,11 +67,6 @@ export default function Home() {
       .finally(() => setLoading(false))
   }
 
-  // const socket = new WebSocket('ws://localhost:3333');
-  // socket.addEventListener('message', (event) => {
-  //   console.log(event.data);
-  // });
-
   return (
     <Board title={"Backup Data"} actionButton={<button onClick={fetchAttendance}>Pull & Backup</button>}>
       <Head>
@@ -87,8 +82,8 @@ export default function Home() {
             <span className='col-span-4 table-header'>IP</span>
             <span className='col-span-4 table-header'>time</span>
             {
-              attendance.map((item, index) => (
-                <tr key={index} className='col-span-12 grid grid-cols-12'>
+              attendance.map((item) => (
+                <tr key={item._id} className='col-span-12 grid grid-cols-12'>
                   <td className='col-span-4 table-content'>{item.deviceUserId}</td>
                   <td className='col-span-4 table-content'>{item.ip}</td>
                   <td className='col-span-4 table-content'>{getTime(item.recordTime)}</td>
@@ -97,7 +92,7 @@ export default function Home() {
             }
           </div>
         }
-      </div >
-    </Board >
+      </div>
+    </Board>
   )
 }

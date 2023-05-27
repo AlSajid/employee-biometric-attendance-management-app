@@ -13,14 +13,16 @@ export default function home() {
             </Head>
 
             <div className="flex gap-10 m-10 flex-wrap justify-center">
-                {
+                {/* {
                     menu.map((option, index) =>
-                        (index !== 0) &&
+                        {
+                            options
+                        }
                         <Link href={option.path} key={index}>
                             <HomeButton menu={option} />
                         </Link>
                     )
-                }
+                } */}
             </div>
         </Board>
     )

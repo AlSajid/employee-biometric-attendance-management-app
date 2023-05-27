@@ -1,9 +1,8 @@
 import { models, model, Schema } from 'mongoose';
 
 const companySchema = new Schema({
-    logo: { type: String, },
     name: { type: String },
-});
+});T
 
 const Company = models.Company || model('Company', companySchema);
 

@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
-const uri = `mongodb+srv://AlSajid:J5p6oDQ5rWSOxERD@cluster0.xe6plxx.mongodb.net`;
+const uri = `mongodb+srv://AlSajid:MonirBhai@biometric-attendance.pji39yi.mongodb.net/?retryWrites=true&w=majority`;
+// console.log(process.env.USER)
 let isConnected = false;
 
 export const connectDb = async () => {
