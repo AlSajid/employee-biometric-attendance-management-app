@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 label {
-  @apply text-xl font-semibold
+  @apply text-lg font-semibold
   text-teal-700
-  m-3;
+  m-1;
 }
 
 input,
@@ -14,10 +14,10 @@ select {
   border-style: solid;
   border-color: rgb(15, 118, 110, 0.3);
 
-  @apply p-3 m-3
-  text-xl font-medium 
+  @apply p-3 m-1
+  text-lg font-medium 
   text-teal-700 bg-teal-50
-  rounded-xl focus:outline-none
+  rounded-lg focus:outline-none
   transition-all duration-300 ease-in-out
   focus:border-teal-700;
 }
@@ -26,10 +26,12 @@ button {
   background-image: linear-gradient(#09ba96, #0ca0b1);
 
   @apply text-white
-  text-xl font-semibold
-  rounded-xl
+  text-lg font-semibold
+  rounded-lg
   overflow-hidden
-  m-3 px-7 py-3;
+  m-1 px-7 py-3
+  transition-all duration-300 ease-in-out
+  hover:bg-teal-500
 }
 
 .table-header {
@@ -42,17 +44,9 @@ button {
 }
 
 .table-content {
-  background-color: rgb(15 118 110);
-
-  font-size: 12px;
-  font-weight: 500;
-
-
-  border-radius: 7px;
-  overflow: hidden;
-
-  @apply text-white text-xl 
+  @apply text-white bg-teal-700  font-medium
   flex justify-center items-center
+  rounded-lg
   p-3 m-1 
 }
 

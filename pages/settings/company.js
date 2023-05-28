@@ -41,7 +41,6 @@ export default function Company() {
                 if (data.message === "success") {
                     toast.success("Information updated successfully");
                     localStorage.setItem("company", nameRef.current.value);
-                    nameRef.current.value = "";
                     logo.current.value = "";
                     return;
                 }
@@ -66,10 +65,10 @@ export default function Company() {
                         <input type="text" className="" ref={nameRef} autoComplete="off" />
                     </div>
 
-                    <div className="my-1 flex flex-col">
+                    {/* <div className="my-1 flex flex-col">
                         <label>Logo</label>
-                        <input hidden type="file" ref={logo} className="" maxLength={7} onChange={(e) => setImage(e.target.files[0])} />
-                    </div>
+                        <input type="file" ref={logo} className="" maxLength={7} onChange={(e) => setImage(e.target.files[0])} />
+                    </div> */}
                 </div>
 
                 <div className="flex justify-center">

@@ -50,7 +50,7 @@ const menu =
                 }
             ]
         },
-        // { option: "Pull Data", icon: <BiCloudDownload />, path: "/attendance" },
+        { option: "Pull Data", icon: <BiCloudDownload />, path: "/attendance" },
         {
             option: "Settings", icon: <AiOutlineSetting />, sub: [
                 {
@@ -62,24 +62,8 @@ const menu =
                     path: "/settings/hours"
                 },
                 {
-                    name: "Office Hours",
-                    path: "/settings/hours"
-                },
-                {
-                    name: "Office Hours",
-                    path: "/settings/hours"
-                },
-                {
-                    name: "Office Hours",
-                    path: "/settings/hours"
-                },
-                {
-                    name: "Office Hours",
-                    path: "/settings/hours"
-                },
-                {
-                    name: "Office Hours",
-                    path: "/settings/hours"
+                    name: "Leave Types",
+                    path: "/settings/leave-types"
                 },
             ]
         }
