@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import Navigation from "./Navigation";
 import logo from '../public/logo.svg';
 
+
+
 export default function Layout({ children }) {
     const [output, setOutput] = useState(null);
     // const [logo, setLogo] = useState("");
-
 
 
     useEffect(() => {
@@ -47,9 +48,6 @@ export default function Layout({ children }) {
 
     }, [])
 
-    useEffect(() => {
-
-    }, [])
 
     return (
         <>

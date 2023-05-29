@@ -14,8 +14,26 @@ export default async function handler(req, res) {
         break;
 
       case "GET":
-        // const data = await le.findOne()
-        // res.status(200).json(data);
+        const data = await Leave.aggregate([
+          {
+            $lookup: {
+              from: 'users',
+              localField: 'id',
+              foreignField: 'id',
+              as: 'user'
+            }
+          },
+          // {
+          //   $unwind: '$user'
+          // },
+          // {
+          //   $project: {
+          //     _id: 0,
+          //     userName: '$user.name'
+          //   }
+          // }
+        ])
+        res.status(200).json(data);
         break;
     }
   } catch (error) {

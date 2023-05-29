@@ -34,20 +34,18 @@ button {
   hover:bg-teal-500
 }
 
-.table-header {
-  color: rgb(15 118 110);
-  font-size: 15x;
-  font-weight: 600;
-  text-align: center;
-
-  @apply text-teal-100;
+.table-header, th {
+  @apply text-teal-700 text-xl font-bold text-center
+  border-2 border-teal-700 bg-green-100
+  p-3
 }
 
 .table-content {
-  @apply text-white bg-teal-700  font-medium
+  @apply text-teal-700 bg-green-50 font-medium
+  border-b-2 border-l-2 border-teal-700
   flex justify-center items-center
-  rounded-lg
-  p-3 m-1 
+  rounded
+  p-1
 }
 
 .theme-grad {
