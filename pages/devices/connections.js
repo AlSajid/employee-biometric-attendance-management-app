@@ -65,55 +65,53 @@ export default function Connections() {
         {/* devices list */}
         {ipAddress?.length > 0 && (
           <>
-            <div className="grid my-3 grid-cols-12 w-11/12 mx-auto">
-              <div className="col-span-1 table-header">No</div>
-              <div className="col-span-4 table-header">IP Address</div>
-              <div className="col-span-6 table-header">Device Info</div>
-              <div className="col-span-1 table-header">Action</div>
-              {ipAddress.map((device, index) => (
-                <div
-                  key={index}
-                  className="grid grid-cols-12 col-span-12 gap-3 "
-                >
-                  <div className="col-span-1 table-content">{index + 1}</div>
-                  <div
-                    className="col-span-4 table-content cursor-pointer"
-                    style={{
-                      backgroundColor: connected.includes(device.ip)
-                        ? "rgb(34 197 94)"
-                        : "rgb(100 116 139",
-                    }}
-                  >
-                    {device.ip + " "}
-                    {connected.includes(device.ip) && (
-                      <span className="ml-3 animate-pulse">(Connected)</span>
-                    )}
-                  </div>
+            <table>
+              <thead>
+                <th className="">No</th>
+                <th className="">IP Address</th>
+                <th className="">Device Info</th>
+                <th className="">Action</th>
+              </thead>
+              <tbody>
+                {ipAddress.map((device, index) => (
+                  <tr key={index}>
+                    <td className="">{index + 1}</td>
+                    <td
+                      className=" cursor-pointer "
+                      style={{
+                        backgroundColor:
+                          connected.includes(device.ip) && "rgb(100 116 139)",
+                      }}
+                    >
+                      {device.ip + " "}
+                      {connected.includes(device.ip) && (
+                        <span className="ml-3 animate-pulse">(Connected)</span>
+                      )}
+                    </td>
 
-                  <div className="col-span-6 table-content cursor-pointer">
-                    {device.tag}
-                  </div>
+                    <td>{device.tag}</td>
 
-                  <div
-                    className="col-span-1 flex justify-center items-center table-content hover:bg-red-500 cursor-pointer"
-                    onClick={() => {
-                      const newIpAddress = ipAddress.filter(
-                        (ip, i) => i !== index
-                      );
-                      setIpAddress(newIpAddress);
-                      localStorage.setItem(
-                        "ipAddress",
-                        JSON.stringify(newIpAddress)
-                      );
-                      toast.success(device.ip + ` has been disconnected`);
-                    }}
-                    title="Remove"
-                  >
-                    -
-                  </div>
-                </div>
-              ))}
-            </div>
+                    <td
+                      className="col-span-1 flex justify-center items-center table-content hover:bg-red-500 cursor-pointer"
+                      onClick={() => {
+                        const newIpAddress = ipAddress.filter(
+                          (ip, i) => i !== index
+                        );
+                        setIpAddress(newIpAddress);
+                        localStorage.setItem(
+                          "ipAddress",
+                          JSON.stringify(newIpAddress)
+                        );
+                        toast.success(device.ip + ` has been disconnected`);
+                      }}
+                      title="Remove"
+                    >
+                      -
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </>
         )}
       </div>

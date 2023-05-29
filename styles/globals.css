@@ -31,21 +31,33 @@ button {
   overflow-hidden
   m-1 px-7 py-3
   transition-all duration-300 ease-in-out
-  hover:bg-teal-500
+  hover:bg-teal-500;
 }
 
-.table-header, th {
-  @apply text-teal-700 text-xl font-bold text-center
-  border-2 border-teal-700 bg-green-100
-  p-3
+table {
+  @apply w-full
+  border-collapse
+  overflow-hidden
+  rounded-lg
+  shadow-lg
+  bg-white;
 }
 
-.table-content {
+.table-header,
+th {
+  @apply text-white text-xl font-bold text-center
+  border-2 border-teal-500 rounded
+   bg-teal-700
+  p-3;
+}
+
+.table-content,
+td {
   @apply text-teal-700 bg-green-50 font-medium
   border-b-2 border-l-2 border-teal-700
-  flex justify-center items-center
-  rounded
-  p-1
+  text-center
+  rounded-lg
+  p-1;
 }
 
 .theme-grad {

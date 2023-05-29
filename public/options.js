@@ -42,6 +42,10 @@ const menu = [
         name: "Manage Leaves",
         path: "/leave/manage-leaves",
       },
+      {
+        name: "Earned Leaves",
+        path: "/leave/earned-leaves",
+      },
     ],
   },
   {
