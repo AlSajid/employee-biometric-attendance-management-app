@@ -16,7 +16,7 @@ export default async function handler(req, res) {
                 );
                 console.log(result);
 
-                (result.acknowledged === true && result.modifiedCount === 1)
+                (result.acknowledged === true && result.matchedCount === 1)
                     ? res.status(200).json("success")
                     : res.status(500).json("error");
                 break;

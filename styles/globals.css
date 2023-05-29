@@ -38,7 +38,6 @@ table {
   /* border-2 border-teal-700; */;
 }
 
-.table-header,
 th {
   @apply text-white text-xl font-bold text-center
   border-2 border-teal-500 rounded
@@ -46,7 +45,6 @@ th {
   p-3;
 }
 
-.table-content,
 td {
   @apply text-teal-700 bg-green-50 font-medium
   border-2 border-teal-700
@@ -59,13 +57,7 @@ td {
   background-image: linear-gradient(#09ba96, #0ca0b1);
 }
 
-.theme-text {
-  color: rgb(15 118 110);
-}
 
-.theme-bg {
-  background-color: #09ba96;
-}
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {

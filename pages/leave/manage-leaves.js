@@ -18,26 +18,17 @@ export default function ManageLeave({ leaves }) {
           </div>
         ) : (
           <table>
-            <thead>
+            <thead className="sticky top-0">
               <th>ID</th>
               <th>Name</th>
               <th>Date</th>
             </thead>
             <tbody>
               {leaves?.map((leave, index) => (
-                <div key={index} className="grid col-span-12 grid-cols-12">
-                  <div
-                    className="col-span-3 table-content"
-                    style={{ justifyContent: "start" }}
-                  >
-                    <span>{leave.id}</span>
-                  </div>
-
-                  <div className="col-span-1 table-content">{leave.id}</div>
-
-                  <div className="col-span-1 table-content">
-                    {getTime(leave?.date, "date")}
-                  </div>
+                <tr key={index}>
+                  <td style={{ justifyContent: "start" }}>{leave.id}</td>
+                  <td>{leave.id}</td>
+                  <td>{getTime(leave?.date, "date")}</td>
 
                   {/* <div className="col-span-1 flex justify-around">
                   <Link
@@ -57,7 +48,7 @@ export default function ManageLeave({ leaves }) {
                     -
                   </div>
                 </div> */}
-                </div>
+                </tr>
               ))}
             </tbody>
           </table>
