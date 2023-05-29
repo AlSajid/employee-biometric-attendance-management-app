@@ -49,7 +49,7 @@ const menu = [
     ],
   },
   {
-    option: "User",
+    option: "Users",
     icon: <FiUsers />,
     sub: [
       {

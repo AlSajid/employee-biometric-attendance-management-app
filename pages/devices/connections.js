@@ -92,7 +92,7 @@ export default function Connections() {
                     <td>{device.tag}</td>
 
                     <td
-                      className="col-span-1 flex justify-center items-center table-content hover:bg-red-500 cursor-pointer"
+                      className="  hover:bg-red-500 hover:text-white cursor-pointer"
                       onClick={() => {
                         const newIpAddress = ipAddress.filter(
                           (ip, i) => i !== index
@@ -106,7 +106,7 @@ export default function Connections() {
                       }}
                       title="Remove"
                     >
-                      -
+                      Remove
                     </td>
                   </tr>
                 ))}
