@@ -36,11 +36,10 @@ button {
 
 table {
   @apply w-full
-  border-collapse
+  /* border-collapse */
   overflow-hidden
-  rounded-lg
-  shadow-lg
-  bg-white;
+  rounded
+  /* border-2 border-teal-700; */
 }
 
 .table-header,
@@ -54,9 +53,9 @@ th {
 .table-content,
 td {
   @apply text-teal-700 bg-green-50 font-medium
-  border-b-2 border-l-2 border-teal-700
+  border-2 border-teal-700
   text-center
-  rounded-lg
+  rounded
   p-1;
 }
 

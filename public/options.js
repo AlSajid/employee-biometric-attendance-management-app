@@ -62,7 +62,16 @@ const menu = [
       },
     ],
   },
-  { option: "Pull Data", icon: <BiCloudDownload />, path: "/attendance" },
+  {
+    option: "Pull Data",
+    icon: <BiCloudDownload />,
+    sub: [
+      {
+        name: "Fetch Attendance",
+        path: "/attendance/puller",
+      },
+    ],
+  },
   {
     option: "Settings",
     icon: <AiOutlineSetting />,
