@@ -1,19 +1,18 @@
 import Board from "@/components/Board";
-import Link from "next/link";
-import Head from "next/head";
-import HomeButton from "@/components/HomeButton";
-import menu from "@/public/options";
+import Clock from "react-live-clock";
 
-export default function home() {
-
-    return (
-        <Board title="Home">
-            <Head>
-                <title>Home</title>
-            </Head>
-
-            <div className="flex gap-10 m-10 flex-wrap justify-center">
-                {/* {
+export default function Home() {
+  return (
+    <Board title="Home">
+      <div className="flex gap-10 m-10 flex-wrap justify-center">
+        <Clock
+          noSsr={true}
+          className="text-9xl text-teal-700 font-bold font-mono oldstyle-nums tracking-widest"
+          format={"hh:mm:ss"}
+          timezone={"Asia/Dhaka"}
+          ticking={true}
+        />
+        {/* {
                     menu.map((option, index) =>
                         {
                             options
@@ -23,7 +22,7 @@ export default function home() {
                         </Link>
                     )
                 } */}
-            </div>
-        </Board>
-    )
+      </div>
+    </Board>
+  );
 }
