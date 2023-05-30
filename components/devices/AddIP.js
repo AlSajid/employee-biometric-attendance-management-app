@@ -5,52 +5,6 @@ const validateIpAddress = (ipAddress) => {
   const regex = /^([0-9]{1,3}\.){3}[0-9]{1,3}$/;
   return regex.test(ipAddress);
 };
-const addIpAddress = (e) => {
-  e.preventDefault();
-
-  if (inputRef.current.value === "") {
-    toast.error("Enter the IP address first");
-    return;
-  }
-
-  if (!validateIpAddress(inputRef.current.value)) {
-    toast.error("Invalid IP address");
-    return;
-  }
-
-  const duplicate = ipAddress.filter(
-    (device) => device.ip === inputRef.current.value
-  );
-  if (duplicate.length > 0) {
-    toast.error("This IP address already exists");
-    return;
-  }
-
-  setIpAddress([
-    ...ipAddress,
-    {
-      ip: inputRef.current.value,
-      tag: infoRef.current.value,
-    },
-  ]);
-
-  setConnected([]);
-
-  localStorage.setItem(
-    "ipAddress",
-    JSON.stringify([
-      ...ipAddress,
-      {
-        ip: inputRef.current.value,
-        tag: infoRef.current.value,
-      },
-    ])
-  );
-
-  inputRef.current.value = "";
-  infoRef.current.value = "";
-  toast.success("New Device added successfully");
-};
 
 export default function AddIP({ ipAddress, setIpAddress, setConnected }) {
   const inputRef = useRef("");
@@ -60,6 +14,53 @@ export default function AddIP({ ipAddress, setIpAddress, setConnected }) {
     const item = JSON.parse(localStorage.getItem("ipAddress"));
     item === null ? setIpAddress([]) : setIpAddress(item);
   }, []);
+
+  const addIpAddress = (e) => {
+    e.preventDefault();
+
+    if (inputRef.current.value === "") {
+      toast.error("Enter the IP address first");
+      return;
+    }
+
+    if (!validateIpAddress(inputRef.current.value)) {
+      toast.error("Invalid IP address");
+      return;
+    }
+
+    const duplicate = ipAddress.filter(
+      (device) => device.ip === inputRef.current.value
+    );
+    if (duplicate.length > 0) {
+      toast.error("This IP address already exists");
+      return;
+    }
+
+    setIpAddress([
+      ...ipAddress,
+      {
+        ip: inputRef.current.value,
+        tag: infoRef.current.value,
+      },
+    ]);
+
+    setConnected([]);
+
+    localStorage.setItem(
+      "ipAddress",
+      JSON.stringify([
+        ...ipAddress,
+        {
+          ip: inputRef.current.value,
+          tag: infoRef.current.value,
+        },
+      ])
+    );
+
+    inputRef.current.value = "";
+    infoRef.current.value = "";
+    toast.success("New Device added successfully");
+  };
 
   return (
     <form onSubmit={addIpAddress} className="col-span-3">
@@ -85,10 +86,7 @@ export default function AddIP({ ipAddress, setIpAddress, setConnected }) {
         </div>
 
         <div className="col-span-2 self-end">
-          <button
-            className=""
-            onClick={addIpAddress}
-          >
+          <button className="" onClick={addIpAddress}>
             Add
           </button>
         </div>
