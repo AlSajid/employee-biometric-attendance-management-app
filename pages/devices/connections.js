@@ -67,10 +67,10 @@ export default function Connections() {
           <>
             <table>
               <thead>
-                <th className="">No</th>
-                <th className="">IP Address</th>
-                <th className="">Device Info</th>
-                <th className="">Action</th>
+                <th>No</th>
+                <th>IP Address</th>
+                <th colSpan={3}>Device Info</th>
+                <th>Action</th>
               </thead>
               <tbody>
                 {ipAddress.map((device, index) => (
@@ -89,10 +89,10 @@ export default function Connections() {
                       )}
                     </td>
 
-                    <td>{device.tag}</td>
+                    <td colSpan={3}>{device.tag}</td>
 
                     <td
-                      className="  hover:bg-red-500 hover:text-white cursor-pointer"
+                      className="  hover:bg-red-500 hover:text-white cursor-pointer transition-all duration-700 ease-in-out"
                       onClick={() => {
                         const newIpAddress = ipAddress.filter(
                           (ip, i) => i !== index

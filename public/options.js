@@ -43,8 +43,8 @@ const menu = [
         path: "/leave/manage-leaves",
       },
       {
-        name: "Earned Leaves",
-        path: "/leave/earned-leaves",
+        name: "Leave Types",
+        path: "/settings/leave-types",
       },
     ],
   },
@@ -83,10 +83,6 @@ const menu = [
       {
         name: "Office Hours",
         path: "/settings/hours",
-      },
-      {
-        name: "Leave Types",
-        path: "/settings/leave-types",
       },
     ],
   },

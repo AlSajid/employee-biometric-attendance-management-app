@@ -19,7 +19,6 @@ export default function Layout({ children }) {
         fetch("http://localhost:3000/api/company")
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
             if (blackHole || !data.subscription) {
 
                 setOutput(

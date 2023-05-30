@@ -74,7 +74,7 @@ export default function AddIP({ ipAddress, setIpAddress, setConnected }) {
           />
         </div>
 
-        <div className="col-span-8 flex flex-col">
+        <div className="col-span-7 flex flex-col">
           <label>Device Information</label>
           <input
             ref={infoRef}
@@ -84,12 +84,12 @@ export default function AddIP({ ipAddress, setIpAddress, setConnected }) {
           />
         </div>
 
-        <div className="self-end">
+        <div className="col-span-2 self-end">
           <button
-            className="col-span-1 theme-bg flex justify-items-center"
+            className=""
             onClick={addIpAddress}
           >
-            +
+            Add
           </button>
         </div>
       </div>

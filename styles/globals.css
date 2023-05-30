@@ -11,7 +11,7 @@ label {
 input,
 select {
   @apply p-3 m-1
-  text-lg font-medium 
+ font-medium 
   text-teal-700 bg-white
   rounded-lg focus:outline-none
   transition-all duration-300 ease-in-out
@@ -22,7 +22,7 @@ button {
   background-image: linear-gradient(#09ba96, #0ca0b1);
 
   @apply text-white
-  text-lg font-semibold
+ font-semibold
   rounded-lg
   overflow-hidden
   m-1 px-7 py-3
@@ -38,15 +38,26 @@ table {
   /* border-2 border-teal-700; */;
 }
 
+/* thead {
+  @apply sticky top-0;
+} */
+
+/* tbody {
+  @apply h-96 overflow-y-auto;
+} */
+
 th {
-  @apply text-white text-xl font-bold text-center
+  @apply text-white  font-semibold text-center
   border-2 border-teal-500 rounded
-   bg-teal-900
-  p-3;
+  bg-teal-700
+  p-1;
+}
+tr {
+  @apply odd:bg-teal-50 even:bg-white;
 }
 
 td {
-  @apply text-teal-700 bg-green-50 font-medium
+  @apply text-teal-700 
   border-2 border-teal-700
   text-center
   rounded
@@ -56,8 +67,6 @@ td {
 .theme-grad {
   background-image: linear-gradient(#09ba96, #0ca0b1);
 }
-
-
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {

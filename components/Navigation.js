@@ -15,7 +15,7 @@ export default function Navigation({ logo }) {
             alt="logo"
             width={0}
             height={0}
-            style={{ height: "auto", width: "" }}
+            style={{ height: "auto", width: "auto" }}
           />
         )}
       </div>

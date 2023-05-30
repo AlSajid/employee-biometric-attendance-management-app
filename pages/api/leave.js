@@ -17,22 +17,18 @@ export default async function handler(req, res) {
         const data = await Leave.aggregate([
           {
             $lookup: {
-              from: 'users',
-              localField: 'id',
-              foreignField: 'id',
-              as: 'user'
-            }
+              from: "users",
+              localField: "id",
+              foreignField: "id",
+              as: "user",
+            },
           },
-          // {
-          //   $unwind: '$user'
-          // },
-          // {
-          //   $project: {
-          //     _id: 0,
-          //     userName: '$user.name'
-          //   }
-          // }
-        ])
+          {
+            $unwind: "$user",
+          },
+
+          // todo: project only user name, designation, department
+        ]);
         res.status(200).json(data);
         break;
     }

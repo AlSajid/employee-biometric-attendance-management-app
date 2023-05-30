@@ -9,6 +9,7 @@ export const getServerSideProps = async () => {
 };
 
 export default function ManageLeave({ leaves }) {
+
   return (
     <Board title="Manage Leave">
       <div className="rounded text-white mx-auto">
@@ -18,16 +19,23 @@ export default function ManageLeave({ leaves }) {
           </div>
         ) : (
           <table>
-            <thead className="sticky top-0">
-              <th>ID</th>
-              <th>Name</th>
-              <th>Date</th>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th colSpan={3}>Name</th>
+                <th>Designation</th>
+                <th>Department</th>
+                <th>Date</th>
+              </tr>
             </thead>
+
             <tbody>
               {leaves?.map((leave, index) => (
                 <tr key={index}>
                   <td style={{ justifyContent: "start" }}>{leave.id}</td>
-                  <td>{leave.id}</td>
+                  <td colSpan={3}>{leave.user.name}</td>
+                  <td>{leave.user.designation}</td>
+                  <td>{leave.user.department}</td>
                   <td>{getTime(leave?.date, "date")}</td>
 
                   {/* <div className="col-span-1 flex justify-around">
