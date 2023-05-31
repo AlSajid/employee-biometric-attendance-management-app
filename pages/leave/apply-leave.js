@@ -4,19 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import { RiCheckboxCircleFill, RiCheckboxCircleLine } from "react-icons/ri";
 
-const leaveType = [
-  "Annual Leave",
-  "Sick Leave",
-  "Maternity Leave",
-  "Paternity Leave",
-  "Casual Leave",
-  "Festival Leave",
-  "Others",
-];
+export const getServerSideProps = async () => {
+  const res = await fetch("http://localhost:3000/api/leave-types");
+  const leaveTypes = await res.json();
+  return { props: { leaveTypes } };
+};
 
-export default function Leave() {
+export default function Leave({ leaveTypes }) {
   const [loading, setLoading] = useState(false);
   const [forAll, setForAll] = useState(false);
+  console.log(leaveTypes);
 
   const idRef = useRef(null);
   const dateRef = useRef(null);
@@ -35,7 +32,7 @@ export default function Leave() {
       toast.error("Please fill up all the fields");
       return;
     }
-    console.log()
+    console.log();
     fetch("http://localhost:3000/api/leave", {
       method: "POST",
       headers: {
@@ -103,13 +100,13 @@ export default function Leave() {
             <label>Leave Type</label>
 
             <select ref={leaveTypeRef}>
-              {leaveType.map((leave, index) => (
+              {leaveTypes.map((leave, index) => (
                 <option
                   key={index}
-                  value={leave}
+                  value={leave.type}
                   onClick={(e) => setIp([e.target.value])}
                 >
-                  {leave}
+                  {leave.type} Leave
                 </option>
               ))}
             </select>

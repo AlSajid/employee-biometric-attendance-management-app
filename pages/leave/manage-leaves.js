@@ -1,5 +1,6 @@
 import Board from "@/components/Board";
 import getTime from "@/utilities/getTime";
+import Link from "next/link";
 
 export const getServerSideProps = async () => {
   const res = await fetch("http://localhost:3000/api/leave");
@@ -8,7 +9,7 @@ export const getServerSideProps = async () => {
 };
 
 export default function ManageLeave({ leaves }) {
-  console.log({ leaves })
+  console.log({ leaves });
   return (
     <Board title="Manage Leave">
       <div className="rounded text-white mx-auto">
@@ -28,7 +29,7 @@ export default function ManageLeave({ leaves }) {
               </tr>
             </thead>
 
-            {/* <tbody>
+            <tbody>
               {leaves?.map((leave, index) => (
                 <tr key={index}>
                   <td style={{ justifyContent: "start" }}>{leave.id}</td>
@@ -37,27 +38,27 @@ export default function ManageLeave({ leaves }) {
                   <td>{leave.user.department}</td>
                   <td>{getTime(leave?.date, "date")}</td>
 
-                  <div className="col-span-1 flex justify-around">
-                  <Link
-                    href={`/users/${user.id}`}
-                    className=" table-content w-1/2"
-                  >
-                    <RxOpenInNewWindow />
-                  </Link>
+                  {/* <div className="col-span-1 flex justify-around">
+                    <Link
+                      href={`/users/${user.id}`}
+                      className=" table-content w-1/2"
+                    >
+                      <RxOpenInNewWindow />
+                    </Link>
 
-                  <div
-                    className="bg-red-500  table-content cursor-pointer font-black
+                    <div
+                      className="bg-red-500  table-content cursor-pointer font-black
                                                         hover:bg-red-600 transition-all duration-300 ease-in-out w-1/2"
-                    onClick={() => handleDelete(user.id)}
-                    style={{ backgroundColor: "red" }}
-                  >
-                    {" "}
-                    -
-                  </div>
-                </div>
+                      onClick={() => handleDelete(user.id)}
+                      style={{ backgroundColor: "red" }}
+                    >
+                      {" "}
+                      -
+                    </div>
+                  </div> */}
                 </tr>
               ))}
-            </tbody> */}
+            </tbody>
           </table>
         )}
       </div>

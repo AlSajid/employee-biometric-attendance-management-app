@@ -15,6 +15,7 @@ export default async function handler(req, res) {
         return;
       }
     case "POST":
+      console.log(req.body)
       const result = await Company.updateOne(
         {},
         { ...req.body },

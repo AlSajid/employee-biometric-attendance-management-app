@@ -84,10 +84,6 @@ const menu = [
         name: "Office Hours",
         path: "/settings/hours",
       },
-      {
-        name: "Leave Types",
-        path: "/settings/leave-types",
-      },
     ],
   },
 ];

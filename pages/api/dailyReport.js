@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     const nextDate = new Date(`${getNextDate(date)}T00:00:00.000+06:00`);
 
     try {
-        const company = await database.collection("company").findOne()
+        const company = await database.collection("companies").findOne()
         const hours = await database.collection('hours').findOne()
         const users = await database.collection('users').aggregate([
             {
