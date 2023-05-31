@@ -2,11 +2,15 @@ import Board from "@/components/Board";
 import Report from "@/pages/Report";
 import getTime from "@/utilities/getTime";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { TiDeleteOutline } from "react-icons/ti";
 
-export default function Users({ users }) {
+export default function Users() {
+  const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState([]);
+
   const loadUsers = () => {
     setLoading(true);
     fetch("http://localhost:3000/api/users")
