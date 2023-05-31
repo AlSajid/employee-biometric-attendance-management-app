@@ -20,11 +20,17 @@ export default function Company() {
   const updateInfoHandler = (event) => {
     event.preventDefault();
     if (!nameRef.current.value) {
-      toast.error("Please fill all the fields");
+      toast.error("Please enter the company name");
+      nameRef.current.focus();
       return;
     }
 
-    // console.log(image)
+    if (!addressRef.current.value) {
+      toast.error("Please enter the company address");
+      addressRef.current.focus();
+      return;
+    }
+
     setLoading(true);
     fetch("http://localhost:3000/api/company", {
       method: "POST",
