@@ -9,8 +9,6 @@ export default function Connections() {
   const [connected, setConnected] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const 
-
   const handleCheckConnection = async () => {
     if (ipAddress.length === 0) {
       toast.error("Add a Device IP Address First");
