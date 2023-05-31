@@ -61,7 +61,7 @@ export default function Users({ users }) {
                 .then((data) => {
                   if (data.message === "success") {
                     toast.success("User has been deleted successfully");
-                    loadUsers();
+                    getServerSideProps();
                   } else {
                     toast.error("Something went wrong");
                   }
