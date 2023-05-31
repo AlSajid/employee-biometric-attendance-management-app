@@ -84,7 +84,7 @@ export default function Users() {
   };
 
   return (
-    <Board title="Users" actionButton={<Report />}>
+    <Board title="Users" actionButton={<Report users={users} />}>
       {users?.length === 0 ? (
         <div className="text-center text-2xl font-semibold my-10 text-gray-500">
           No users found

@@ -5,7 +5,6 @@ import {
   View,
   Text,
   PDFDownloadLink,
-  PDFViewer,
   StyleSheet,
 } from "@react-pdf/renderer";
 import { useEffect, useState } from "react";
@@ -140,7 +139,7 @@ const MyDoc = ({ company, users, date }) => (
   </Document>
 );
 
-export default function App() {
+export default function App({ users }) {
   const [pdfBtn, setPdfBtn] = useState(null);
   const [date, setDate] = useState(getTime(new Date(), "input"));
 
@@ -176,13 +175,12 @@ export default function App() {
         );
       })
       .catch((err) => console.log(err));
-  }, [date]);
+  }, [date, users.length]);
 
   return (
     <div className="flex">
       <input
         type="date"
-
         onChange={(e) => setDate(e.target.value)}
         value={date}
       />
