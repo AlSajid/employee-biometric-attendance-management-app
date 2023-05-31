@@ -82,7 +82,7 @@ export default function Connections() {
                       className=" cursor-pointer "
                       style={{
                         backgroundColor:
-                          connected.includes(device.ip) && "rgb(100 116 139)",
+                          connected.includes(device.ip) && "@apply bg-green-500",
                       }}
                     >
                       {device.ip + " "}
