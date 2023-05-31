@@ -81,7 +81,7 @@ export default function Connections() {
                     <td
                       className={
                         connected.includes(device.ip) &&
-                        "cursor-pointer bg-green-500 text-white"
+                        "cursor-pointer bg-green-300 text-white"
                       }
                     >
                       {device.ip + " "}
