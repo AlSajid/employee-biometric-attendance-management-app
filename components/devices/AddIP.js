@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { toast } from "react-hot-toast";
-import { GrAdd } from "react-icons/gr";
 
 const validateIpAddress = (ipAddress) => {
   const regex = /^([0-9]{1,3}\.){3}[0-9]{1,3}$/;
@@ -21,6 +20,13 @@ export default function AddIP({ ipAddress, setIpAddress, setConnected }) {
 
     if (inputRef.current.value === "") {
       toast.error("Enter the IP address first");
+      inputRef.current.focus();
+      return;
+    }
+
+    if (infoRef.current.value === "") {
+      toast.error("Enter device information first");
+      infoRef.current.focus();
       return;
     }
 
@@ -60,6 +66,7 @@ export default function AddIP({ ipAddress, setIpAddress, setConnected }) {
 
     inputRef.current.value = "";
     infoRef.current.value = "";
+    inputRef.current.focus();
     toast.success("New Device added successfully");
   };
 

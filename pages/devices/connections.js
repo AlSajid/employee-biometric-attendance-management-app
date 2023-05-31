@@ -1,13 +1,15 @@
 import Board from "@/components/Board";
 import Loader from "@/components/Loader";
 import AddIP from "@/components/devices/AddIP";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-hot-toast";
 
 export default function Connections() {
   const [ipAddress, setIpAddress] = useState([]);
   const [connected, setConnected] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const 
 
   const handleCheckConnection = async () => {
     if (ipAddress.length === 0) {
