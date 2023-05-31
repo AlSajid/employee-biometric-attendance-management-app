@@ -1,5 +1,4 @@
 import Board from "@/components/Board";
-import Loader from "@/components/Loader";
 import getTime from "@/utilities/getTime";
 
 export const getServerSideProps = async () => {
@@ -9,13 +8,13 @@ export const getServerSideProps = async () => {
 };
 
 export default function ManageLeave({ leaves }) {
-
+  console.log({ leaves })
   return (
     <Board title="Manage Leave">
       <div className="rounded text-white mx-auto">
         {leaves?.length === 0 ? (
           <div className="text-center text-2xl font-semibold my-10 text-gray-500">
-            No users found
+            No Information Found
           </div>
         ) : (
           <table>
@@ -29,7 +28,7 @@ export default function ManageLeave({ leaves }) {
               </tr>
             </thead>
 
-            <tbody>
+            {/* <tbody>
               {leaves?.map((leave, index) => (
                 <tr key={index}>
                   <td style={{ justifyContent: "start" }}>{leave.id}</td>
@@ -38,7 +37,7 @@ export default function ManageLeave({ leaves }) {
                   <td>{leave.user.department}</td>
                   <td>{getTime(leave?.date, "date")}</td>
 
-                  {/* <div className="col-span-1 flex justify-around">
+                  <div className="col-span-1 flex justify-around">
                   <Link
                     href={`/users/${user.id}`}
                     className=" table-content w-1/2"
@@ -55,10 +54,10 @@ export default function ManageLeave({ leaves }) {
                     {" "}
                     -
                   </div>
-                </div> */}
+                </div>
                 </tr>
               ))}
-            </tbody>
+            </tbody> */}
           </table>
         )}
       </div>

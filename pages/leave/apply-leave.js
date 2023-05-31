@@ -1,9 +1,8 @@
 import Board from "@/components/Board";
 import Loader from "@/components/Loader";
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import { RiCheckboxCircleFill, RiCheckboxCircleLine } from "react-icons/ri";
-import { encode } from "../api/node_zklib/timeParser";
 
 const leaveType = [
   "Annual Leave",
@@ -36,14 +35,14 @@ export default function Leave() {
       toast.error("Please fill up all the fields");
       return;
     }
-
+    console.log()
     fetch("http://localhost:3000/api/leave", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: idRef.current.value,
+        id: forAll ? "All" : idRef.current.value,
         date: dateRef.current.value,
         leaveType: leaveTypeRef.current.value,
       }),

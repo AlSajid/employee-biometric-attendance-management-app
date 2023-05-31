@@ -2,12 +2,8 @@ import { useEffect, useState } from "react";
 import Navigation from "./Navigation";
 import logo from '../public/logo.svg';
 
-
-
 export default function Layout({ children }) {
     const [output, setOutput] = useState(null);
-    // const [logo, setLogo] = useState("");
-
 
     useEffect(() => {
         const exp = "2" + "0" + "2" + "3" + "-" + "0" + "9" + "-" + "2" + "6"
@@ -55,7 +51,7 @@ export default function Layout({ children }) {
                     output
                     :
                     <>
-                        <div className="h-screen lg:flex justify-center items-center hidden">
+                        <div className="h-screen lg:flex justify-center items-center hidden bg-slate-50">
                             <div>
                                 <Navigation logo={logo} />
                             </div>

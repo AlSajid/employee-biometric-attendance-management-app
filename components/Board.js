@@ -17,7 +17,7 @@ export default function Board({ children, title, actionButton }) {
           <div className="col-span-6 flex items-center justify-end">{actionButton}</div>
         </div>
 
-        <div className="rounded-lg w-full grow mb-3 overflow-y-auto bg-teal-100">
+        <div className="rounded-lg w-full grow mb-3 overflow-y-auto ">
           {children}
         </div>
       </div>

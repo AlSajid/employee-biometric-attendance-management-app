@@ -4,7 +4,7 @@
 
 label {
   @apply text-lg font-semibold
-  text-teal-700
+  text-teal-900
   m-1;
 }
 
@@ -12,7 +12,7 @@ input,
 select {
   @apply p-3 m-1
  font-medium 
-  text-teal-700 bg-white
+  text-teal-900 bg-white
   rounded-lg focus:outline-none
   transition-all duration-300 ease-in-out
   border-teal-500 border-2 focus:border-teal-700;
@@ -57,7 +57,7 @@ tr {
 }
 
 td {
-  @apply text-teal-700 
+  @apply text-teal-900 
   border-2 border-teal-700
   text-center
   rounded

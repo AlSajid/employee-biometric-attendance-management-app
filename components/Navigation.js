@@ -8,7 +8,7 @@ export default function Navigation({ logo }) {
 
   return (
     <nav className="w-64 h-screen text-white flex flex-col ">
-      <div className="p-3 flex justify-center items-center h-16">
+      <div className="p-3 flex justify-center items-center h-16 w-2/3 text-center">
         {logo && (
           <Image
             src={logo}
