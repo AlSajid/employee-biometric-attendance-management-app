@@ -139,7 +139,7 @@ const MyDoc = ({ company, users, date }) => (
   </Document>
 );
 
-export default function App({ users }) {
+export default function Report({ users }) {
   const [pdfBtn, setPdfBtn] = useState(null);
   const [date, setDate] = useState(getTime(new Date(), "input"));
 

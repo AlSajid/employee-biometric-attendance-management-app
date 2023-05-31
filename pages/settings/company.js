@@ -50,7 +50,7 @@ export default function Company() {
         if (data.message === "success") {
           toast.success("Information updated successfully");
           localStorage.setItem("company", nameRef.current.value);
-          localStorage.setItem("address", address.current.value);
+          localStorage.setItem("address", addressRef.current.value);
           logo.current.value = "";
           return;
         }
