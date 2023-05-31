@@ -6,32 +6,26 @@ import { toast } from "react-hot-toast";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { TiDeleteOutline } from "react-icons/ti";
 
-export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:3000/api/users");
-  const users = await res.json();
-  return { props: { users } };
-};
-
 export default function Users({ users }) {
-  //   const loadUsers = () => {
-  //     setLoading(true);
-  //     fetch("http://localhost:3000/api/users")
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setLoading(false);
-  //         if (data.error) {
-  //           toast.error(data.error);
-  //           return;
-  //         }
+  const loadUsers = () => {
+    setLoading(true);
+    fetch("http://localhost:3000/api/users")
+      .then((response) => response.json())
+      .then((data) => {
+        setLoading(false);
+        if (data.error) {
+          toast.error(data.error);
+          return;
+        }
 
-  //         setUsers(data);
-  //       })
-  //       .catch((err) => console.log(err.code));
-  //   };
+        setUsers(data);
+      })
+      .catch((err) => console.log(err.code));
+  };
 
-  //   useEffect(() => {
-  //     loadUsers();
-  //   }, []);
+  useEffect(() => {
+    loadUsers();
+  }, []);
 
   const handleDelete = (id) => {
     toast((t) => (
