@@ -79,11 +79,10 @@ export default function Connections() {
                   <tr key={index}>
                     <td className="">{index + 1}</td>
                     <td
-                      className="cursor-pointer bg-green-500"
-                      style={{
-                        backgroundColor:
-                          connected.includes(device.ip) && "rgb(34 197 94)",
-                      }}
+                      className={
+                        connected.includes(device.ip) &&
+                        "cursor-pointer bg-green-500 text-white"
+                      }
                     >
                       {device.ip + " "}
                       {connected.includes(device.ip) && (
