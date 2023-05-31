@@ -31,6 +31,20 @@ const menu = [
     ],
   },
   {
+    option: "Users",
+    icon: <FiUsers />,
+    sub: [
+      {
+        name: "Add User",
+        path: "/users/add-user",
+      },
+      {
+        name: "Manage Users",
+        path: "/users/manage-users",
+      },
+    ],
+  },
+  {
     option: "Leave",
     icon: <FaRegCalendarTimes />,
     sub: [
@@ -45,20 +59,6 @@ const menu = [
       {
         name: "Leave Types",
         path: "/settings/leave-types",
-      },
-    ],
-  },
-  {
-    option: "Users",
-    icon: <FiUsers />,
-    sub: [
-      {
-        name: "Add User",
-        path: "/users/add-user",
-      },
-      {
-        name: "Manage Users",
-        path: "/users/manage-users",
       },
     ],
   },
