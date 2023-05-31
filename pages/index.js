@@ -1,8 +1,6 @@
 import Board from "@/components/Board";
 import { useState } from "react";
-import Calendar from "react-calendar";
 import Clock from "react-live-clock";
-import "react-calendar/dist/Calendar.css";
 import getTime from "@/utilities/getTime";
 
 export default function Home() {
