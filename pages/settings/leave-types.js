@@ -76,8 +76,8 @@ export default function LeaveType({ leaveTypes }) {
           </tr>
         </thead>
         <tbody>
-          {leaveTypes.map((leaveType) => (
-            <tr key={leaveType._id}>
+          {leaveTypes.map((leave) => (
+            <tr key={leave._id}>
               <td>{leave.type}</td>
               <td>{leave.count}</td>
               <td>Delete</td>
