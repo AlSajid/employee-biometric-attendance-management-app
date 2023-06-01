@@ -10,7 +10,7 @@ export const getServerSideProps = async () => {
 
 export default function LeaveType({ leaveTypes }) {
   const leaveTypeRef = useRef(null);
-  const [c, setLeaveCount] = useState(0);
+  const [leaveCount, setLeaveCount] = useState(0);
   console.log(leaveTypes);
 
   const handleSubmit = (e) => {
@@ -55,8 +55,9 @@ export default function LeaveType({ leaveTypes }) {
           <label>Leave Count</label>
           <input
             type="number"
+            value={leaveCount}
             onChange={(e) =>
-              e.target.value < 100 && setLeaveCount(e.target.value)
+              parseInt(e.target.value) < 100 && setLeaveCount(e.target.value)
             }
           />
         </div>
