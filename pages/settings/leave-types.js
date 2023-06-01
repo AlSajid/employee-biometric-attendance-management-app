@@ -57,7 +57,10 @@ export default function LeaveType({ leaveTypes }) {
             type="number"
             value={leaveCount}
             onChange={(e) =>
-              parseInt(e.target.value) < 100 && setLeaveCount(e.target.value)
+              ((parseInt(e.target.value) < 100 &&
+                0 < parseInt(e.target.value)) ||
+                e.target.value == "") &&
+              setLeaveCount(e.target.value)
             }
           />
         </div>
