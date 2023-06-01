@@ -108,7 +108,7 @@ export default function User() {
         <Loader msg="fetching" />
       ) : (
         <div className="m-3">
-          <table id="Table2XLSX" className="hidden">
+          <table id="Table2XLSX" className="">
             <thead>
               <tr>
                 <th>Date</th>
@@ -117,6 +117,7 @@ export default function User() {
                 <th>Type</th>
               </tr>
             </thead>
+
             <tbody>
               {attendance.map((data, index) => (
                 <tr key={index} className="">
@@ -131,7 +132,7 @@ export default function User() {
             </tbody>
           </table>
 
-          <div className="w-11/12 mx-auto grid grid-cols-12">
+          {/* <div className="w-11/12 mx-auto grid grid-cols-12">
             {/* headers */}
             <span className="col-span-3 table-header">Date</span>
             <span className="col-span-3 table-header">Time</span>
@@ -155,7 +156,7 @@ export default function User() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       )}
     </Board>
