@@ -6,15 +6,33 @@ import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
+export function getCurrentMonthDates() {
+  const currentDate = new Date();
+  const firstDate = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    1
+  );
+  const lastDate = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0
+  );
+
+  return { firstDate, lastDate };
+}
+
 export default function User() {
+  const { firstDate, lastDate } = getCurrentMonthDates();
+
   const router = useRouter();
   const { userID } = router.query;
   const [mainAttendance, setMainAttendance] = useState([]);
   const [attendance, setAttendance] = useState([]);
   const [loading, setLoading] = useState(true);
   const [hours, setHours] = useState([]);
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
+  const [start, setStart] = useState(firstDate);
+  const [end, setEnd] = useState(lastDate);
 
   const download = useCallback(async () => {
     const table = document.getElementById("Table2XLSX");
@@ -117,7 +135,6 @@ export default function User() {
                 <th>Type</th>
               </tr>
             </thead>
-
             <tbody>
               {attendance.map((data, index) => (
                 <tr key={index} className="">
@@ -131,32 +148,6 @@ export default function User() {
               ))}
             </tbody>
           </table>
-
-          {/* <div className="w-11/12 mx-auto grid grid-cols-12">
- 
-            <span className="col-span-3 table-header">Date</span>
-            <span className="col-span-3 table-header">Time</span>
-            <span className="col-span-4 table-header">Device ID</span>
-            <span className="col-span-2 table-header">Type</span>
-
-            {attendance.map((data, index) => (
-              <div
-                key={index}
-                className="col-span-12 grid grid-cols-12  text-white"
-              >
-                <div className="table-content col-span-3 ">
-                  {getTime(data.recordTime, "date")}
-                </div>
-                <div className="table-content col-span-3 ">
-                  {getTime(data.recordTime, "time")}
-                </div>
-                <div className="table-content col-span-4 ">{data.ip}</div>
-                <div className="table-content col-span-2 ">
-                  {getType(getTime(data.recordTime, "compare"))}
-                </div>
-              </div>
-            ))}
-          </div> */}
         </div>
       )}
     </Board>
