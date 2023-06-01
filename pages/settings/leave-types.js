@@ -44,9 +44,7 @@ export default function LeaveType({ leaveTypes }) {
       });
   };
 
-  const handleDelete = (id) => {
-
-  }
+  const handleDelete = (id) => {};
 
   return (
     <Board title={"Leave Types"}>
@@ -58,7 +56,7 @@ export default function LeaveType({ leaveTypes }) {
 
         <div className="flex flex-col">
           <label>Leave Count</label>
-          <input type="number" ref={leaveCountRef} />
+          <input type="number" max={99} ref={leaveCountRef} />
         </div>
         <div className="flex items-end">
           <button>Add</button>
