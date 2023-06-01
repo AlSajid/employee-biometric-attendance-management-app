@@ -29,9 +29,6 @@ export default function User() {
   const [start, setStart] = useState(firstDate);
   const [end, setEnd] = useState(lastDate);
 
-  console.log(start);
-  console.log(end);
-
   const download = useCallback(async () => {
     const table = document.getElementById("Table2XLSX");
     const wb = XLSX.utils.table_to_book(table);
@@ -41,7 +38,7 @@ export default function User() {
 
   const loadData = () => {
     setLoading(true);
-
+    
     fetch("http://localhost:3000/api/report", {
       method: "POST",
       headers: {
