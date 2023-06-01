@@ -67,7 +67,7 @@ export default function LeaveType({ leaveTypes }) {
 
       <hr />
 
-      <table className="m-3">
+      <table className="my-3">
         <thead>
           <tr>
             <th>Leave Type</th>
@@ -78,7 +78,7 @@ export default function LeaveType({ leaveTypes }) {
         <tbody>
           {leaveTypes.map((leave) => (
             <tr key={leave._id}>
-              <td>{leave.type}</td>
+              <td>{leave.type} Leave</td>
               <td>{leave.count}</td>
               <td>Delete</td>
             </tr>
