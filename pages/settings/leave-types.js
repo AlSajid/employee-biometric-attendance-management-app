@@ -78,8 +78,8 @@ export default function LeaveType({ leaveTypes }) {
         <tbody>
           {leaveTypes.map((leaveType) => (
             <tr key={leaveType._id}>
-              <td>Annual Leave</td>
-              <td>10</td>
+              <td>{leave.type}</td>
+              <td>{leave.count}</td>
               <td>Delete</td>
             </tr>
           ))}
