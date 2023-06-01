@@ -34,6 +34,9 @@ export default function User() {
   const [start, setStart] = useState(firstDate);
   const [end, setEnd] = useState(lastDate);
 
+  console.log(start)
+  console.log(end)
+
   const download = useCallback(async () => {
     const table = document.getElementById("Table2XLSX");
     const wb = XLSX.utils.table_to_book(table);
@@ -102,7 +105,7 @@ export default function User() {
     <Board
       title={`User ID ${userID}`}
       actionButton={
-        <div className="justify-center items-center flex w-full my-5">
+        <div className="justify-center items-center flex">
           <input
             type="date"
             className=""
@@ -138,12 +141,10 @@ export default function User() {
             <tbody>
               {attendance.map((data, index) => (
                 <tr key={index} className="">
-                  <td className="">{getTime(data.recordTime, "date")}</td>
-                  <td className="">{getTime(data.recordTime, "time")}</td>
-                  <td className="">{data.ip}</td>
-                  <td className="">
-                    {getType(getTime(data.recordTime, "compare"))}
-                  </td>
+                  <td>{getTime(data.recordTime, "date")}</td>
+                  <td>{getTime(data.recordTime, "time")}</td>
+                  <td>{data.ip}</td>
+                  <td>{getType(getTime(data.recordTime, "compare"))}</td>
                 </tr>
               ))}
             </tbody>
