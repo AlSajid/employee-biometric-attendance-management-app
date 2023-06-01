@@ -1,5 +1,5 @@
 import Board from "@/components/Board";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 
 export const getServerSideProps = async () => {
@@ -10,16 +10,13 @@ export const getServerSideProps = async () => {
 
 export default function LeaveType({ leaveTypes }) {
   const leaveTypeRef = useRef(null);
-  const leaveCountRef = useRef(null);
+  const [c, setLeaveCount] = useState(0);
   console.log(leaveTypes);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      leaveTypeRef.current.value === "" ||
-      leaveCountRef.current.value === ""
-    ) {
+    if (leaveTypeRef.current.value === "" || leaveCount === "") {
       toast.error("Please fill up all the fields");
       return;
     }
@@ -31,7 +28,7 @@ export default function LeaveType({ leaveTypes }) {
       },
       body: JSON.stringify({
         type: leaveTypeRef.current.value,
-        count: leaveCountRef.current.value,
+        count: leaveCount,
       }),
     })
       .then((res) => res.json())
@@ -56,7 +53,12 @@ export default function LeaveType({ leaveTypes }) {
 
         <div className="flex flex-col">
           <label>Leave Count</label>
-          <input type="number" max={99} ref={leaveCountRef} />
+          <input
+            type="number"
+            onChange={(e) =>
+              e.target.value < 100 && setLeaveCount(e.target.value)
+            }
+          />
         </div>
         <div className="flex items-end">
           <button>Add</button>
