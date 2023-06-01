@@ -133,7 +133,7 @@ export default function User() {
           </table>
 
           {/* <div className="w-11/12 mx-auto grid grid-cols-12">
-            {/* headers */}
+ 
             <span className="col-span-3 table-header">Date</span>
             <span className="col-span-3 table-header">Time</span>
             <span className="col-span-4 table-header">Device ID</span>
