@@ -6,18 +6,13 @@ import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
-export function getCurrentMonthDates() {
+function getCurrentMonthDates() {
   const currentDate = new Date();
-  const firstDate = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth(),
-    1
-  );
-  const lastDate = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth() + 1,
-    0
-  );
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+  const firstDate = `${year}-${month}-01`;
+  const lastDay = new Date(year, currentDate.getMonth() + 1, 0).getDate();
+  const lastDate = `${year}-${month}-${lastDay}`;
 
   return { firstDate, lastDate };
 }
@@ -34,8 +29,8 @@ export default function User() {
   const [start, setStart] = useState(firstDate);
   const [end, setEnd] = useState(lastDate);
 
-  console.log(start)
-  console.log(end)
+  console.log(start);
+  console.log(end);
 
   const download = useCallback(async () => {
     const table = document.getElementById("Table2XLSX");
