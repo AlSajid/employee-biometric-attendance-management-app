@@ -38,7 +38,7 @@ export default function User() {
 
   const loadData = () => {
     setLoading(true);
-    
+
     fetch("http://localhost:3000/api/report", {
       method: "POST",
       headers: {
@@ -62,15 +62,6 @@ export default function User() {
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  };
-
-  const handleFilter = () => {
-    const filtered = mainAttendance.filter(
-      (item) =>
-        new Date(start) <= new Date(item.recordTime) &&
-        new Date(end) >= new Date(item.recordTime)
-    );
-    setAttendance(filtered);
   };
 
   useEffect(() => {
@@ -110,7 +101,7 @@ export default function User() {
             value={end}
             onChange={(e) => setEnd(e.target.value)}
           />
-          <button className="mx-3" onClick={handleFilter}>
+          <button className="mx-3" onClick={()=>loadData()}>
             Filter
           </button>
           <button onClick={download}>Export</button>

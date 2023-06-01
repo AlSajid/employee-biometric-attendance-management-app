@@ -27,7 +27,7 @@ button {
   overflow-hidden
   m-1 px-7 py-3
   transition-all duration-300 ease-in-out
-  hover:bg-teal-500;
+  hover:bg-teal-700;
 }
 
 table {
