@@ -20,4 +20,4 @@ svc.install();
 // node attendance.js
 
 // --- to uninstall ---
-//sc delete biometricattendancesystem
+//sc delete biometricattendancesystem.exe
