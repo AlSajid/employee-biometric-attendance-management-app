@@ -15,7 +15,7 @@ export default function Home() {
     localStorage.setItem("attendance", JSON.stringify(attendance));
     console.log(attendance);
 
-    fetch("http://localhost:3000/api/backupAttendance", {
+    fetch("http://localhost:7777/api/backupAttendance", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export default function Home() {
     const ipAddress = localStorage.getItem("ipAddress") ?? "[]";
     const ips = JSON.parse(ipAddress).map((obj) => obj.ip);
 
-    fetch("http://localhost:3000/api/getAttendance", {
+    fetch("http://localhost:7777/api/getAttendance", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

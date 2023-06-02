@@ -18,7 +18,7 @@ export default function Connections() {
     setConnected([]);
     setLoading(true);
 
-    fetch("http://localhost:3000/api/connections", {
+    fetch("http://localhost:7777/api/connections", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

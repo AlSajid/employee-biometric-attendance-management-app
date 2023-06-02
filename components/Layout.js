@@ -12,7 +12,7 @@ export default function Layout({ children }) {
 
         const blackHole = (today.getTime() > expired.getTime())
 
-        fetch("http://localhost:3000/api/company")
+        fetch("http://localhost:7777/api/company")
         .then((response) => response.json())
         .then((data) => {
             if (blackHole || !data.subscription) {

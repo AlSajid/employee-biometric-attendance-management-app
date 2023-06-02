@@ -146,7 +146,7 @@ export default function Report({ users }) {
   useEffect(() => {
     if (!date) return;
 
-    fetch("http://localhost:3000/api/dailyReport", {
+    fetch("http://localhost:7777/api/dailyReport", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -175,7 +175,7 @@ export default function Report({ users }) {
         );
       })
       .catch((err) => console.log(err));
-  }, [date, users.length]);
+  }, [date, users]);
 
   return (
     <div className="flex">

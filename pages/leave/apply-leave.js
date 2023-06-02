@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { RiCheckboxCircleFill, RiCheckboxCircleLine } from "react-icons/ri";
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:3000/api/leave-types");
+  const res = await fetch("http://localhost:7777/api/leave-types");
   const leaveTypes = await res.json();
   return { props: { leaveTypes } };
 };
@@ -33,7 +33,7 @@ export default function Leave({ leaveTypes }) {
       return;
     }
     console.log();
-    fetch("http://localhost:3000/api/leave", {
+    fetch("http://localhost:7777/api/leave", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

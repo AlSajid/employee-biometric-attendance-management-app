@@ -1,10 +1,9 @@
-var Service = require('node-windows').Service;
+const Service = require('node-windows').Service;
 
 // Create a new service object
-var svc = new Service({
+const svc = new Service({
     name: 'Biometric Attendance System',
     description: 'Biometric Attendance System',
-    // script: 'D:\\projects\\biometric-attendance\\service.js',
     script: 'service.js',
 });
 

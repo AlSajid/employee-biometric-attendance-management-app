@@ -2,10 +2,13 @@ import connect from "./connect";
 import database from "./database";
 
 export default async function handler(req, res) {
-    const { id, ips } = req.body;
+    const { id } = req.body;
 
     try {
-        const { zkInstance } = await connect(ips);
+        
+        const user = await database.collection("users").findOne({ id });
+        const { zkInstance } = await connect(user.ips);
+
         await zkInstance.deleteUser(id)
 
 
