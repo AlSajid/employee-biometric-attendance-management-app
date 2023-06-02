@@ -52,7 +52,7 @@ export default function AddUser() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:7777/api/addUser", {
+      const response = await fetch("http://localhost:7000/api/addUser", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

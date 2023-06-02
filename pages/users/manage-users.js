@@ -13,7 +13,7 @@ export default function Users() {
 
   const loadUsers = () => {
     setLoading(true);
-    fetch("http://localhost:7777/api/users")
+    fetch("http://localhost:7000/api/users")
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
@@ -43,7 +43,7 @@ export default function Users() {
             onClick={() => {
               toast.dismiss(t.id);
 
-              fetch("http://localhost:7777/api/deleteUser", {
+              fetch("http://localhost:7000/api/deleteUser", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

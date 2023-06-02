@@ -3,7 +3,7 @@ import getTime from "@/utilities/getTime";
 import Link from "next/link";
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:7777/api/leave");
+  const res = await fetch("http://localhost:7000/api/leave");
   const leaves = await res.json();
   return { props: { leaves } };
 };

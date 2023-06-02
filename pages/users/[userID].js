@@ -39,7 +39,7 @@ export default function User() {
   const loadData = () => {
     setLoading(true);
 
-    fetch("http://localhost:7777/api/report", {
+    fetch("http://localhost:7000/api/report", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -32,7 +32,7 @@ export default function Company() {
     }
 
     setLoading(true);
-    fetch("http://localhost:7777/api/company", {
+    fetch("http://localhost:7000/api/company", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

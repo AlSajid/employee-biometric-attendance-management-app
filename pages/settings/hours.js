@@ -12,7 +12,7 @@ export default function Hours() {
     const [end, setEnd] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:7777/api/hours")
+        fetch("http://localhost:7000/api/hours")
             .then(res => res.json())
             .then(data => {
                 if (data === null) {
@@ -41,7 +41,7 @@ export default function Hours() {
         }
 
         setLoading(true);
-        const update = fetch("http://localhost:7777/api/hours", {
+        const update = fetch("http://localhost:7000/api/hours", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

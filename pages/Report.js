@@ -146,7 +146,7 @@ export default function Report({ users }) {
   useEffect(() => {
     if (!date) return;
 
-    fetch("http://localhost:7777/api/dailyReport", {
+    fetch("http://localhost:7000/api/dailyReport", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

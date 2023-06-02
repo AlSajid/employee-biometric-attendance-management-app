@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:7777/api/leave-types");
+  const res = await fetch("http://localhost:7000/api/leave-types");
   const leaveTypes = await res.json();
   return { props: { leaveTypes } };
 };
@@ -21,7 +21,7 @@ export default function LeaveType({ leaveTypes }) {
       return;
     }
 
-    fetch("http://localhost:7777/api/leave-types", {
+    fetch("http://localhost:7000/api/leave-types", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
