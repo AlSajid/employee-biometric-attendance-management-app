@@ -1,13 +1,10 @@
-import {
-  AiOutlineFieldTime,
-  AiOutlineUserAdd,
-  AiOutlineSetting,
-} from "react-icons/ai";
+import { AiOutlineSetting } from "react-icons/ai";
 import { MdWifi } from "react-icons/md";
 import { VscHome } from "react-icons/vsc";
 import { BiCloudDownload } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { FaRegCalendarTimes } from "react-icons/fa";
+import {HiOutlineDocumentReport} from "react-icons/hi";
 
 const menu = [
   {
@@ -83,6 +80,16 @@ const menu = [
       {
         name: "Office Hours",
         path: "/settings/hours",
+      },
+    ],
+  },
+  {
+    option: "Reports",
+    icon: <HiOutlineDocumentReport />,
+    sub: [
+      {
+        name: "Attendance",
+        path: "/reports/attendance",
       },
     ],
   },

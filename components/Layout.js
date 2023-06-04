@@ -51,7 +51,7 @@ export default function Layout({ children }) {
                     output
                     :
                     <>
-                        <div className="h-screen lg:flex justify-center items-center hidden bg-slate-50">
+                        <div className="h-screen lg:flex justify-center items-center hidden">
                             <div>
                                 <Navigation logo={logo} />
                             </div>

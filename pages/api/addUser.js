@@ -10,7 +10,6 @@ export default async function handler(req, res) {
         res.status(500).json({ error: "No device is connected" });
         return;
     }
-    console.log(req.body)
 
     try {
         await zkInstance.setUser(name, "", id, id);

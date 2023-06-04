@@ -60,7 +60,7 @@ export default function Leave({ leaveTypes }) {
     <Board title={"Apply Leave"}>
       <form className="flex flex-col my-3 w-11/12 mx-auto">
         <div className="my-3 flex flex-col w-1/3 mx-auto">
-          <div className="my-1 flex items-center justify-center">
+          {/* <div className="my-1 flex items-center justify-center">
             {forAll ? (
               <RiCheckboxCircleFill
                 className="text-3xl cursor-pointer"
@@ -79,7 +79,7 @@ export default function Leave({ leaveTypes }) {
             >
               Apply to all users
             </label>
-          </div>
+          </div> */}
 
           <div className="my-3 flex flex-col">
             <label>User ID</label>
@@ -91,9 +91,15 @@ export default function Leave({ leaveTypes }) {
             />
           </div>
 
-          <div className="my-3 flex flex-col">
-            <label>Date</label>
-            <input type="date" className="" ref={dateRef} />
+          <div className="my-3 flex">
+            <div className="flex flex-col justify-between">
+              <label>Start Date</label>
+              <input type="date" className="" ref={dateRef} />
+            </div>
+            <div>
+              <label className="flex flex-col">End Date</label>
+              <input type="date" className="" ref={dateRef} />
+            </div>
           </div>
 
           <div className="my-3 flex flex-col">

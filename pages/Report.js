@@ -139,7 +139,7 @@ const MyDoc = ({ company, users, date }) => (
   </Document>
 );
 
-export default function Report({ users }) {
+export default function Report() {
   const [pdfBtn, setPdfBtn] = useState(null);
   const [date, setDate] = useState(getTime(new Date(), "input"));
 
@@ -175,7 +175,7 @@ export default function Report({ users }) {
         );
       })
       .catch((err) => console.log(err));
-  }, [date, users]);
+  }, [date]);
 
   return (
     <div className="flex">
