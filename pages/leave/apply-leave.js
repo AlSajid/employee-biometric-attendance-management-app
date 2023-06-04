@@ -13,10 +13,9 @@ export const getServerSideProps = async () => {
 export default function Leave({ leaveTypes }) {
   const [loading, setLoading] = useState(false);
   const [forAll, setForAll] = useState(false);
-  console.log(leaveTypes);
-
   const idRef = useRef(null);
-  const dateRef = useRef(null);
+  const startDateRef = useRef(null);
+  const endDateRef = useRef(null);
   const leaveTypeRef = useRef(null);
 
   useEffect(() => {
@@ -40,7 +39,8 @@ export default function Leave({ leaveTypes }) {
       },
       body: JSON.stringify({
         id: forAll ? "All" : idRef.current.value,
-        date: dateRef.current.value,
+        start: startDateRef.current.value,
+        end: endDateRef.current.value,
         leaveType: leaveTypeRef.current.value,
       }),
     })
@@ -94,11 +94,11 @@ export default function Leave({ leaveTypes }) {
           <div className="my-3 flex">
             <div className="flex flex-col justify-between">
               <label>Start Date</label>
-              <input type="date" className="" ref={dateRef} />
+              <input type="date" className="" ref={startDateRef} />
             </div>
             <div>
               <label className="flex flex-col">End Date</label>
-              <input type="date" className="" ref={dateRef} />
+              <input type="date" className="" ref={endDateRef} />
             </div>
           </div>
 
