@@ -25,7 +25,8 @@ export default function ManageLeave({ leaves }) {
                 <th colSpan={3}>Name</th>
                 <th>Designation</th>
                 <th>Department</th>
-                <th>Date</th>
+                <th>Start Date</th>
+                <th>End Date</th>
               </tr>
             </thead>
 
@@ -36,7 +37,8 @@ export default function ManageLeave({ leaves }) {
                   <td colSpan={3}>{leave.user.name}</td>
                   <td>{leave.user.designation}</td>
                   <td>{leave.user.department}</td>
-                  <td>{getTime(leave?.date, "date")}</td>
+                  <td>{getTime(leave?.startDate, "date")}</td>
+                  <td>{getTime(leave?.endDate, "date")}</td>
 
                   {/* <div className="col-span-1 flex justify-around">
                     <Link

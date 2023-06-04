@@ -27,7 +27,11 @@ export default function Leave({ leaveTypes }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (dateRef.current.value === "" || leaveTypeRef.current.value === "") {
+    if (
+      startDateRef.current.value === "" ||
+      endDateRef.current.value === "" ||
+      leaveTypeRef.current.value === ""
+    ) {
       toast.error("Please fill up all the fields");
       return;
     }
@@ -48,6 +52,10 @@ export default function Leave({ leaveTypes }) {
       .then((data) => {
         if (data.error) {
           toast.error(data.error);
+          idRef.current.value = "";
+          startDateRef.current.value = "";
+          endDateRef.current.value = "";
+          leaveTypeRef.current.value = "";
         } else {
           toast.success(data.message);
         }

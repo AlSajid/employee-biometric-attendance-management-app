@@ -2,7 +2,8 @@ import { models, model, Schema } from 'mongoose';
 
 const leaveSchema = new Schema({
     id: { type: String },
-    date: { type: Date },
+    start: { type: Date },
+    end: { type: Date },
     leaveType: { type: String }
 });
 
