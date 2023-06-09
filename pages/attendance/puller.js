@@ -82,15 +82,15 @@ export default function Home() {
     >
       <div className="flex flex-col items-center justify-center mx-auto">
         {attendance.length > 0 && (
-          <table className="m-3 w-11/12 mx-auto grid grid-cols-12 text-center">
+          <table>
             <thead>
-              <th className="col-span-4 table-header">ID</th>
-              <th className="col-span-4 table-header">IP</th>
-              <th className="col-span-4 table-header">time</th>
+              <th>ID</th>
+              <th>IP</th>
+              <th>time</th>
             </thead>
 
             {attendance.map((item) => (
-              <tr key={item._id} className="col-span-12 grid grid-cols-12">
+              <tr key={item._id}>
                 <td>{item.deviceUserId}</td>
                 <td>{item.ip}</td>
                 <td>{getTime(item.recordTime)}</td>
